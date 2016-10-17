@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hallo Angular</title>
+    <style type="text/css">
+        body{
+            font-family: sans-serif:
+            margin:20px;
+        }
+    </style>
+    <script src="http://singlepage.info/g/angular.js"></script>
+    <script>
+        console.log("Say something if you're ok" + angular);
+        let Hello = angular.module("Hello", []);
+
+        Hello.controller("ctrl", ($scope) =>{
+            $scope.greeting = "Hello World";
+            $scope.planets = ['Merkur', 'Venus', 'Mars'];
+            $scope.addPlanet = () => { $scope.planets.push('Jupiter'); }
+        });
+    </script>
+</head>
+<body>
+    <div ng-app="Hello" ng-controller="ctrl">
+        <span ng-bind="greeting"></span> und
+        <ul>
+            <li ng-repeat="p in planets"><span ng-bind="p"></span></li>
+            <button ng-click="addPlanet()">mehr</button>
+        </ul>
+    </div>
+</body>
+</html>

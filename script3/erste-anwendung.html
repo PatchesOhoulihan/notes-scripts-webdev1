@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Getting Started with Single Page Application</title>
+
+    <meta name="description" content="Workshop HTML...">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link href="css/normalize.css" rel="stylesheet" media="all">
+    <link href="css/master.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+
+</head>
+
+<body>
+    <div id="site-wrapper">
+        <header role="banner" class="pageheader">
+            <h1>Getting Started</h1>
+        </header>
+        <nav role="navigation" id="nav" class="navmain">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mvc.html">Model View Controller</a></li>
+                <li><a href="#">Die erste Anwendung</a></li>
+                <li><a href="auftrtt-angular.html">Auftritt Superheld Angular</a></li>
+                <li><a href="Javascript-server.html">Server Communication</a></li>
+                <li><a href="http.html">http Protokoll</a></li>
+                <li><a href="websockets.html">Websockets</a></li>
+            </ul>
+        </nav>
+
+        <main role="main" aria-labeledby="content">
+            <section>
+                <header>
+                    <p>➤ wie man Webseiten per HTTP-Protokoll aufrufen kann. ➤ wie man eine einfache Anwendung unter Berücksichtigung
+                        des MVC-Entwurfsmusters in JavaScript programmiert.</p>
+                    <img srcset="" src="" alt="">
+                </header>
+                <article>
+                    <h2>Der eigene Webserver</h2>
+                    <p>Als Leser dieses Buches haben Sie sicher bereits eigene HTML-Dateien erstellt und direkt im Webbrowser
+                        geöffnet. <br> Die Zugriffsmethode ist hier file:// , was einfach nur bedeutet, dass der Webbrowser
+                        die Datei direkt öffnet, also auf das lokale Dateisystem zugreift.</p>
+                    <p>Die meisten Webentwickler benutzen daher ihren eigenen, lokal installierten Webserver, um Dateien im
+                        Webbrowser mittels HTTP zu öffnen.</p>
+                    <p>An dieser Stelle benötigen Sie Node.js.: <code>npm install http-server -g</code></p>
+                    <p>Dieser Befehl installiert mittels NPM das Paket http-server: einen Open Source Webserver, der ganz ohne
+                        Konfiguration auskommt.</p>
+                    <p>Firing up: http-server /pfad/zum/projekt</p>
+                    <h3>Das Modell(todolist.js)</h3>
+                    <p>Es bietet sich an, eine JavaScript-Klasse zu verwenden. Die Klasse soll die Eigenschaften einer To-do-Liste
+                        enthalten sowie die Methoden</p>
+                    <ul>
+                        <li>
+                            <p>Model</p>
+                            <pre><code>
+                                "use strict";
+
+                                class TodoList {
+
+                                    constructor() {
+
+                                        this.list = [];
+
+                                    }
+
+
+                                    getList() {
+
+                                        return this.list;
+                                    }
+
+                              
+                                    add(t) {
+                                        this.list.push( { text: String(t), done: false } );
+                                    }
+
+                                    set(ix, done) {
+                                        this.list[ix].done = done;
+                                    }
+                                    
+                                    clean() {
+                                        let cleanedList = [];
+                                        this.list.forEach( el => {
+                                        
+                                            if (!el.done) {
+                                                cleanedList.push(el);
+                                            }
+                                        });
+                                        this.list = cleanedList;
+                                    }
+
+                                    dump() {
+                                        this.list.forEach(
+                                            (t, i) => console.log(`${i}: ${t.text}: ${t.done}`)
+                                        );
+                                        console.log("---"); // Trenner
+                                    }
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            <p>Controller</p>
+                            <pre>
+                                <code>
+                                    "use strict";
+
+                                    const myList = new TodoList();
+
+                                    const refreshView = () => {
+
+                                        let content = "";
+
+                                        myList.getList().forEach( (el, ix) => {
+
+                                        let checked = "";
+
+                                        if (el.done) { checked = "checked"; }
+
+                                        content += `
+
+                                                &lt;tr&gt;
+
+                                                &lt;td&gt;${escape(el.text)}&lt;/td&gt;
+
+                                                &lt;td&gt;
+
+                                                &lt;input type="checkbox" id="check${ix}" ${checked} /&gt;
+
+                                                &lt;/td&gt;
+
+                                                &lt;/tr&gt;
+
+                                            `;
+
+                                        });
+
+                                        $("#todos").innerHTML = content;
+                                        myList.getList().forEach( (el, ix) => {
+                                            $("#check" + ix).addEventListener("click",() =>  myList.set(ix, 01("#todos input")[ix].checked); );
+                                        });
+                                        };
+
+                                        const $ = document.querySelector.bind(document);
+                                        const $$ = document.querySelectorAll.bind(document);
+
+                                        const escape = str => {
+                                            return str.replace(/\&/g, "&amp;")
+                                            .replace(/\</g, "&lt;")
+                                            .replace(/\>/g, "&gt;");
+                                        }
+                                        
+                                        $("#add").addEventListener("click", () => {
+                                        if ($("#newTodo").value.trim() !== "") {myList.add($("#newTodo").value);
+                                                                                refreshView();
+                                        }
+                                        $("#newTodo").value = "";
+                                        });
+                                        $("#clean").addEventListener("click", () => {
+                                        myList.clean();
+                                        refreshView();
+                                        });
+                                        $("#dump").addEven
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            <p>View</p>
+                            <pre>
+                                <code>
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html lang="en"&gt;
+                                    &lt;head&gt;
+                                    &lt;meta charset="UTF-8"&gt;
+                                    &lt;title&gt;To do Liste&lt;/title&gt;
+                                    &lt;script   src="https://code.jquery.com/jquery-3.1.1.slim.js"   integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="   crossorigin="anonymous" &gt;&lt;/script&gt;
+                                    &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"&gt;
+                                    &lt;script src="todolist.js" defer&gt;&lt;/script&gt;
+                                    &lt;style type="text/css"&gt;
+                                        body{
+                                            font-family: sans-serif;
+                                            margin: 20px;
+                                        }
+                                        table{
+                                            border-collapse: collapse;
+                                        }
+                                        td{
+                                            padding: 8px;
+                                        }
+                                    &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;h2&gt;To-dos&lt;/h2&gt;
+                                        &lt;table class="table table-striped"&gt;
+                                            &lt;tbody id="todos"&gt;
+                                        &lt;/tbody&gt;
+                                        &lt;tbody&gt;
+                                            &lt;tr&gt;
+                                                &lt;td&gt;&lt;input type="text" id="newTodo" type="text"&gt;&lt;/td&gt;
+                                                &lt;td&gt;&lt;button id="add" class="btn btn-primary"&gt;hinzufügen&lt;/button&gt;&lt;/td&gt;
+                                            &lt;/tr&gt;
+                                            &lt;/tbody&gt;
+                                        &lt;/table&gt;
+                                        &lt;br&gt;&lt;br&gt;
+                                        &lt;button id="dump" class="btn btn-info"&gt;in der Konsole anzeigen&lt;/button&gt;
+                                        &lt;button id="clean" class="btn btn-success"&gt;erledigte To-dos löschen&lt;/button&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </code>
+                            </pre>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+        </main>
+
+        <aside role="complementary" id="linklisten" class="linklisten">
+            <h2 class="hideme">Linklisten</h2>
+            <section id="#">
+                <h3>links zu Thema </h3>
+                <ul>
+                    <li><a href="https://babeljs.io">Babel transpiler</a></li>
+                </ul>
+            </section>
+        </aside>
+
+        <footer role="contentinfo">
+            <h2>Infos über diese Webseite</h2>
+            <small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
+            <address>
+                <p>NAME | Straße | PLZ Ort | LAND</p>
+            </address>
+        </footer>
+    </div>
+</body>
+
+</html>

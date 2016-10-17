@@ -1,0 +1,55 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Form Validation&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+        body{
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        form{
+            white-space: pre;
+            font-family: monospace;
+        }
+        input.ng-valid{
+            background-color: #EEFFEE;
+        }
+        input.ng-invalid{
+            background-color: #FFEEEE;
+        }
+    &lt;/style&gt;
+    &lt;script src="http://singlepage.info/g/angular.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+
+        let HelloForm = angular.module('HelloForm', []);
+
+        HelloForm.controller('ctrl', ($scope) =&gt; {
+            $scope.user = {};
+        });
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div ng-app="HelloForm" ng-controller="ctrl"&gt;
+        &lt;form action="" name="myForm" novalidate=""&gt;
+            &lt;label for="fname"&gt;Vorname:&lt;/label&gt;
+            &lt;input name="fname" type="text" required ng-model="user.fname" ng-minlength="2"&gt;
+
+            &lt;label for="lname"&gt;Nachname:&lt;/label&gt;
+            &lt;input name="lname" type="text" required ng-model="user.lname" ng-minlength="2"&gt;
+
+            &lt;label for="email"&gt;E-Mail:&lt;/label&gt;
+            &lt;input name="email" type="email" required ng-model="user.email"&gt;
+
+            &lt;label for="year" required&gt;Geburtsjahr:&lt;/label&gt;
+            &lt;input name="year" type="number" ng-model="user.year" ng-minlength="2" ng-maxlength="4"&gt;
+
+            &lt;input type="submit" value="ok" ng-disabled="myForm.$invalid"&gt;
+        &lt;/form&gt;
+
+        &lt;p&gt;$scope.user: {{user}}&lt;/p&gt;
+        &lt;p&gt;$scope.myForm.$invalid: {{myForm.$invalid}}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;

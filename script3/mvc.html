@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Getting Started with Single Page Application</title>
+
+    <meta name="description" content="Workshop HTML...">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link href="css/normalize.css" rel="stylesheet" media="all">
+    <link href="css/master.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+
+</head>
+
+<body>
+    <div id="site-wrapper">
+        <header role="banner" class="pageheader">
+            <h1>Getting Started</h1>
+        </header>
+        <nav role="navigation" id="nav" class="navmain">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Model View Controller</a></li>
+                <li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
+                <li><a href="auftrtt-angular.html">Auftritt Superheld Angular</a></li>
+                <li><a href="Javascript-server.html">Server Communication</a></li>
+                <li><a href="http.html">http Protokoll</a></li>
+                <li><a href="websockets.html">Websockets</a></li>
+            </ul>
+        </nav>
+
+        <main role="main" aria-labeledby="content">
+            <section>
+                <header>
+                    <p>➤ wie eine Anwendung aufgebaut ist. ➤ was MVC bedeutet und warum man sich danach richten sollte.</p>
+                    <img srcset="" src="" alt="">
+                </header>
+                <article>
+                    <h2>MVC</h2>
+                    <p>Der norwegische Informatiker Trygve Reenskaug hat sich darüber bereits 1979 Gedanken gemacht und ein
+                        allgemeines Konzept vorgestellt, das sich als De-facto-Standard für den Gro- bentwurf von Anwendungen
+                        durchgesetzt hat. Das Muster wird Model-View-Controller (kurz MVC) genannt — siehe T. M. H. R EENSKAUG
+                        (1979).
+                    </p>
+                    <p>Wie der Name schon andeutet, wird eine Anwendung gemäß MVC in drei Einheiten strukturiert:
+                    </p>
+                    <ul>
+                        <li>das Datenmodell (engl. model)</li>
+                        <li>die Präsentation (engl. view) und</li>
+                        <li>die Steuerung (engl. controller).</li>
+                    </ul>
+                    <h3>Das Datenmodell</h3>
+                    <p>Der Zweck jeder Anwendung ist schlussendlich die Verwaltung von Daten — egal ob es um eine Komponente
+                        in der CAD-Software, einen Text im Editor oder eine virtuelle Welt im Video- spiel geht.</p>
+                    <p>Zur Verwaltung im Rechner muss die Komponente, der Text oder die virtuelle Welt abstrahiert und in Form
+                        von Daten erfasst sein. Diesen Teil bezeichnet man als das Datenmodell.</p>
+                    <p>Example: </p>
+                    <p>
+                        <code>
+                            class Model {
+                                constructor() {
+                                    this.spielerX = 100;
+                                    this.spielerY = 150;
+                                    this.richtung = 'oben';
+                                }
+                            };
+                        </code>
+                    </p>
+                    <h2>Präsentation und Steuerung</h2>
+                    <p>Die Präsentation kümmert sich um die Darstellung des Datenmodells und der Elemente der Benutzerschnittstelle.
+                    </p>
+                    <p>Eine komplexe Anwendungen besteht aus mehreren Präsentationen, die verschiedene Aspekte des Datenmodells
+                        darstellen und dem Benutzer verschiedene Arten der Interaktion ermöglichen.
+                    </p>
+                    <p>Wenn sich das Datenmodell ändert, muss die Präsentation entsprechend reagieren.</p>
+                    <p>Wichtig: Die Präsentation reagiert nicht selbst auf Benutzereingaben! Dafür ist die dritte Komponente
+                        zuständig, nämlich die Steuerung.</p>
+                    <p>Die Steuerung wertet Benutzereingaben aus und reagiert entsprechend. Sie kann das Datenmodell ändern,
+                        die Präsentation aktualisieren oder wechseln.</p>
+                    <p>Den Code, der das Datenmodell ändert, nennt man auch Geschäftslogik. Je nach Ansatz kann die Geschäftslogik
+                        Teil des Datenmodells oder Teil der Steuerung sein.</p>
+                    <h2>MVC im Web</h2>
+                    <p>Beachten Sie, dass MVC ein Muster für einen Grobentwurf ist. Die Details werden sicherlich je nach verwendeter
+                        Plattform, Programmiersprache und Framework anders umgesetzt werden.</p>
+                    <h4>Plattformen</h4>
+                    <p>Unter Plattform versteht man die Umgebung, in der eine Anwendung läuft.</p>
+                    <p>Bei einer Webanwendung ist die Plattform auf der Clientseite eigentlich schon vorgegeben: Es ist der
+                        Webbrowser (HTML, CSS, JavaScript).</p>
+                    <p>Interessanter ist die Serverseite. Dort gibt es eine überraschend große Auswahl an sol- chen Plattformen.
+                        Sie unterscheiden sich im Betriebssystem, in der Programmiersprache, der Webserver- und der Datenbanksoftware.
+                        Die Diskussion, welche denn nun die beste Plattform ist, füllt seit Jahren die Internetforen.</p>
+                    <h4>Frameworks</h4>
+                    <p>Die meisten Entwickler erfinden das Rad nicht gerne ständig neu, daher verwenden sie Frameworks: Das
+                        sind »Rahmen«, bestehend aus Codebibliotheken und Richtlinien, wie diese zu benutzen sind.</p>
+                    <p>Frameworks gibt es sowohl für serverseitige als auch für clientseitige Entwicklung — und zwar wie Sand
+                        am Meer. Ein beliebtes Serverframework für Node.js ist z. B. Express. Für clientseitige Entwicklung
+                        seien jQuery und AngularJS erwähnt.</p>
+                    <p>Das gilt insbesondere für Webanwendungen — Reenskaug hat MVC ja bereits 1979 eingeführt, lange vor der
+                        Erfindung des World Wide Web!</p>
+                    <p>Einige Frameworks folgen neueren Varianten von MVC wie z. B. Model-View-ViewModel (MVVM), die besser
+                        auf moderne Plattformen übertragbar sind. Das populäre Framework AngularJS sagt über sich selbst,
+                        dass es das MVW-Muster einsetzt (Model-View-Whatever) und meint damit »whatever works for you« (I.
+                        M INAR (2009)).</p>
+                    <h4>Wie wird MVC im Web umgesetzt.</h4>
+                    <p>Zunächst einmal muss festgehalten werden, dass der Webbrowser selbst eine Anwendung ist. Für den Webbrowser
+                        ist der HTML-Code der angezeigten Webseite das Datenmodell, das in einem Fenster präsentiert wird.
+                        Die Steuerungselemente des Webbrowsers (etwa Vor- und Zurück-Button, URL-Leiste, Scrollbar usw.)
+                        beeinflussen diese Präsentation.</p>
+                    <p>Die Einheiten nach MVC müssen auf Webbrowser und Webserver verteilt werden. Die Kommunikation zwischen
+                        den beiden Seiten erfolgt mittels HTTP (siehe Hinweis-Box »Das HTTP- Protokoll«).
+                    </p>
+                    <p>Bei einer klassischen Webanwendung kümmert sich der Webbrowser lediglich um die Präsentation. Die Steuerung
+                        (und das Datenmodell) laufen im Webserver. Jeder Klick muss also erst einmal per HTTP zur Steuerung
+                        an den Webserver geschickt werden. Daraufhin ändert die Steuerung das Datenmodell (falls nötig) und
+                        aktualisiert die Präsentation, indem sie eine neue HTML-Seite als Antwort zum Webbrowser schickt.</p>
+                    <p>Wie bereits in Abschnitt 1.1 angedeutet, heißt die Lösung Single-Page-Application: Dabei wird die Steuerung
+                        oder zumindest relevante Teile davon in den Webbrowser verlagert; eventu- ell, je nach Natur der
+                        Anwendung, sogar das Datenmodell, oder Teile davon. Ein Klick wird dann lokal (im Webbrowser) ausgewertet,
+                        und die betroffenen HTML-Elemente werden sofort aktualisiert. Falls eine Folgekommunikation mit dem
+                        Server nötig ist (etwa um das Datenmodell auf dem Server anzugleichen)</p>
+                    <h4>Das HTTP-Protokoll</h4>
+                    <p>HTTP (Hypertext Transfer Protocol) ist ein Standard, der beschreibt, wie ein Webbrowser oder ähnliche
+                        Software (Client) mit einem Webserver (Server) kommuniziert.</p>
+                    <p>Die Kommunikationseinheiten, die Client und Server austauschen, werden als Nachrichten bezeichnet. Davon
+                        gibt es zwei Arten: Der Client sendet Anfragen (engl. request) zum Server und dieser sendet Antworten
+                        (engl. response) zurück.</p>
+                    <p>Jede Nachricht besteht aus einigen Textzeilen (engl. header), gefolgt von einer leeren Zeile und (falls
+                        vorgesehen) einem Datenteil.</p>
+                    <p>Hier ist die HTTP-Anfrage, die Ihr Webbrowser an den Server de.wikipedia.org schickt, wenn Sie die URL:</p>
+                    <p><code>http://de.wikipedia.org/wiki/Hypertext_Transfer_Protocol</code> aufrufen:</p>
+                    <p><code>GET /wiki/Hypertext_Transfer_Protocol HTTP/1.1 <br> Host: de.wikipedia.org</code></p>
+                    <p>(Die dritte Zeile ist leer, sie signalisiert das Ende des Headers. Datenteil ist keiner vorhanden.)</p>
+                    <p>Der Wikipedia-Server sendet daraufhin folgende HTTP-Antwort an den Webbrowser zurück:</p>
+                    <p><code>HTTP/1.1 200 OK <br>Server: Apache <br>Content-Type: text/html; charset=UTF-8 <br> <br> <!DOCTYPE html> <br>
+                            [... Datenteil mit dem HTML der Seite ...]</code></p>
+                    <p>Neben der sogenannten GET-Anfrage in diesem Beispiel kennt HTTP noch andere Arten von Anfragen. Wichtig
+                        ist die POST-Anfrage, mit der ein Client Daten zum Server übertra- gen kann — zum Beispiel die Daten,
+                        die über ein HTML-Formular abgeschickt werden, und noch einige andere mehr.</p>
+                </article>
+            </section>
+        </main>
+
+        <aside role="complementary" id="linklisten" class="linklisten">
+            <h2 class="hideme">Linklisten</h2>
+            <section id="#">
+                <h3>links zu Thema </h3>
+                <ul>
+                    <li><a href="https://babeljs.io">Babel transpiler</a></li>
+                </ul>
+            </section>
+        </aside>
+
+        <footer role="contentinfo">
+            <h2>Infos über diese Webseite</h2>
+            <small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
+            <address>
+                <p>NAME | Straße | PLZ Ort | LAND</p>
+            </address>
+        </footer>
+    </div>
+</body>
+
+</html>

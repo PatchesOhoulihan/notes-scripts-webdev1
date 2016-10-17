@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoListe Angular</title>
+    <style type="text/css">
+        body{
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            padding: 8px;
+        }
+    </style>
+    <script src="http://singlepage.info/g/angular.js"></script>
+    <script src="model-todolist.js"></script>
+    <script src="controller-todolist.js"></script>
+</head>
+<body ng-app="Todo" ng-controller="ctrl" ng-cloak>
+    <h2>To-dos</h2>
+    <table>
+        <tr ng-repeat="todo in myList.getList()">
+            <td>{{todo.text}}</td>
+            <td><input type="checkbox" ng-model="todo.done"></td>
+        </tr>
+        <tr>
+            <td><input type="text" ng-model="newTodo"></td>
+            <td><button ng-disabled="!newTodo" ng-click="add()">hinzufügen</button></td>
+        </tr>
+    </table>
+    <button ng-click="myList.dump()">in der Konsole anzeigen</button>
+    <button ng-click="myList.clean()">erledigte To-dos löschen</button>
+</body>
+</html>

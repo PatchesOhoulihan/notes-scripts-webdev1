@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Getting Started with Single Page Application</title>
+
+	<meta name="description" content="Workshop HTML...">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<link href="css/normalize.css" rel="stylesheet" media="all">
+	<link href="css/master.css" rel="stylesheet" media="all">
+	<!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+
+</head>
+
+<body>
+	<div id="site-wrapper">
+		<header role="banner" class="pageheader">
+			<h1>Getting Started</h1>
+		</header>
+		<nav role="navigation" id="nav" class="navmain">
+			<h2>Navigation</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="mvc.html">Model View Controller</a></li>
+				<li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
+				<li><a href="#">Auftritt Superheld Angular</a></li>
+				<li><a href="Javascript-server.html">Server Communication</a></li>
+				<li><a href="http.html">http Protokoll</a></li>
+				<li><a href="websockets.html">Websockets</a></li>
+			</ul>
+		</nav>
+
+		<main role="main" aria-labeledby="content">
+			<section>
+				<header>
+					<p>➤ wie der Template-Mechanismus von AngularJS funktioniert. ➤ was Datenbindung ist und wie sie von AngularJS unterstützt
+						wird. ➤ wie AngularJS bei der Form-Validierung helfen kann.</p>
+					<img srcset="" src="" alt="">
+				</header>
+				<article>
+					<h2>Hallo Welt example</h2>
+					<pre>
+						<code>
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html lang="en"&gt;
+                                &lt;head&gt;
+                                &lt;meta charset="UTF-8"&gt;
+                                &lt;title&gt;Hallo Angular&lt;/title&gt;
+                                &lt;style type="text/css"&gt;
+                                    body{
+                                        font-family: sans-serif:
+                                        margin:20px;
+                                    }
+                                &lt;/style&gt;
+                                &lt;script src="http://singlepage.info/g/angular.js"&gt;&lt;/script&gt;
+                                &lt;script&gt;
+                                console.log("Say something if you're ok" + angular);
+                                let Hello = angular.module("Hello", []);
+
+                                Hello.controller("ctrl", ($scope) =&gt;{
+                                    $scope.greeting = "Hello World";
+                                    $scope.planets = ['Merkur', 'Venus', 'Mars'];
+                                    $scope.addPlanet = () => { $scope.planets.push('Jupiter'); }
+                                });
+                                &lt;/script&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;div ng-app="Hello" ng-controller="ctrl"&gt;
+                                        &lt;span ng-bind="greeting"&gt;&lt;/span&gt; und
+                                        &lt;ul&gt;
+                                            &lt;li ng-repeat="p in planets"&gt;&lt;span ng-bind="p"&gt;&lt;/span&gt;&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </code>
+					</pre>
+					<p>In Zeile 16 wird ein neues AngularJS-Modul namens »Hello« registriert. Das zweite Argu- ment muss ein leeres Array sein
+						(Details dazu finden Sie in der API-Dokumentation 3 ). Die- ser Modulname entspricht dem Wert des ng-app -Attributes
+						im Template-Block.</p>
+					<p>In den Zeilen 18-21 definieren wir eine Steuerung namens »ctrl« für unser Hello-Modul. Das spezielle Objekt $scope stellt
+						dabei die Brücke zwischen der Steuerung und der Prä- sentation dar. Wir können unser (sehr) simples Datenmodell (also
+						greeting und planets ) einfach im $scope ablegen.</p>
+					<p>Die Aufrufe von .module() und .controller() lassen sich übrigens auch verketten. Die Variable Hello würde dadurch überflüssig:</p>
+					<p>Wenn AngularJS startet, wird nach einem Element mit dem ng-app -Attribut gesucht. Dieser Teil des Dokuments wird dann
+						als Template verwendet.</p>
+					<p>AngularJS analysiert das Template und verwendet es als Vorlage, um aus den Daten im Datenmodell das für die Präsentation
+						gewünschte DOM zu erzeugen (MVC!).</p>
+					<p>Die ng-Attribute beschreiben, wie die Transformation vom Template zum fertigen DOM erfolgen soll. Man nennt sie Direktiven.</p>
+					<p>Angular erzeugt daraufhin den folgenden DOM:</p>
+					<pre>
+						<code>
+                            &lt;div ng-app="Hello" ng-controller="ctrl"&gt;
+                                &lt;span ng-bind="greeting"&gt;Hallo Welt&lt;/span&gt; und
+                                &lt;ul&gt;
+                                    &lt;li ng-repeat="p in planets"&gt;&lt;span ng-bind="p"&gt;Merkur&lt;/span&gt;&lt;/li&gt;
+                                    &lt;li ng-repeat="p in planets"&gt;&lt;span ng-bind="p"&gt;Venus&lt;/span&gt;&lt;/li&gt;
+                                    &lt;li ng-repeat="p in planets"&gt;&lt;span ng-bind="p"&gt;Mars&lt;/span&gt;&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        </code>
+					</pre>
+					<p>Der Template-Mechanismus ist sehr bequem: Wir brauchen z. B. keine Schleife zu schreiben, um aus dem planets -Array
+						Listenelemente zu generieren — die ng-repeat -Direktive kümmert sich automatisch darum!</p>
+					<p>Sobald auf den Button geklickt wird, taucht Jupiter unmittelbar in der Liste auf! AngularJS sorgt dafür, dass jede Änderung
+						der Daten ein Auffrischen der Präentation mit sich bringt. Einen solchen Mechanismus nennt man Datenbindung (engl.
+						data binding).
+					</p>
+					<p>
+						Die ng -Attribute kennt der Webbrowser übrigens gar nicht. Das ist auch egal — sie werden von der Rendering-Engine der Webbrowser
+						einfach ignoriert und haben nur eine Bedeutung für den AngularJS-Template-Code.
+					</p>
+					<p><strong>Alternative Namen für die AngularJS-Direktiven und HTML-Konformität</strong> <br> Eine Direktive, z. B. ng-bind
+						, kann alternativ auch als ngBind , ng:bind , ng_bind , data-ng-bind oder x-ng-bind geschrieben werden. <strong>Die Schreibweise
+						mit dem data- Präfix ist insofern interessant, als sie Templates liefert, die gültiges HTML5 sind (HTML5 lässt benutzerdefinierte
+						data- Attribute zu).</strong></p>
+					<h3>What's in a Name</h3>
+					<p>Beachten Sie, dass $scope tatsächlich genau so heißen muss, sonst meldet AngularJS einen Fehler bei der Initialisierung.</p>
+					<p>Die Technik, die AngularJS hier verwendet, um der Funktion die benötigten Objekte ein- fach per Argument zu übergeben,
+						nennt man in der Softwareentwicklung übrigens Dependency Injection. Und um zu erkennen, welche Objekte denn überhaupt
+						benötigt werden, verwendet speziell AngularJS tatsächlich den Namen der lokalen Variable.</p>
+					<p>In der Praxis kann das zu Problemen führen. Wenn jemand diese lokalen Variablen umbe- nennt, schlägt der Mechanismus
+						fehl! Es gibt Werkzeuge, die genau das machen: Sie benennen lokale Variablen um (was man normalerweise ja machen darf
+						), damit der Sourcecode kürzer wird. Ein solches Werkzeug würde nun z. B. $scope in a umbenennen. AngularJS kann mit
+						dem Bezeichner a aber nichts anfangen und weiß nicht, was es denn an der Position übergeben muss.</p>
+					<h3>Wenn schon Datenbindung, dann richtig</h3>
+					<p>Das Hallo-Welt-Beispiel hat gezeigt, dass ng-bind Daten automatisch und live in die Präsen- tation einbinden kann. Wie
+						sieht es nun andersherum aus? Was passiert, wenn die Präsenta- tion ein Eingabefeld hat und die eingegebenen Werte
+						das Datenmodell verändern sollen?</p>
+					<p>Die ng-model Direktive erledigt den Job:</p>
+					<pre>
+						<code>
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html lang="en"&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="UTF-8"&gt;
+                                    &lt;title&gt;Document&lt;/title&gt;
+                                    &lt;style type="text/css"&gt;
+                                        body{
+                                            font-family: sans-serif;
+                                            margin: 20px;
+                                        }
+                                    &lt;/style&gt;
+                                    &lt;script src="http://singlepage.info/g/angular.js"&gt;&lt;/script&gt;
+                                    &lt;script&gt;
+                                        let Hello = angular.module('Hello', []);
+
+                                        Hello.controller('ctrl', ($scope) =&gt; {
+                                            $scope.name = "User";
+                                        });
+
+                                    &lt;/script&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;div ng-app="Hello" ng-controller="ctrl"&gt;
+                                        &lt;input type="text" ng-model="name"&gt;
+                                        &lt;p&gt;Hello &lt;span ng-bind="name"&gt;&lt;/span&gt; !&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/body&gt;
+                                &lt;/html&gt;
+                            </code>
+					</pre>
+					<p>Auch die Datenbindung in diese Richtung ist live: Der Inhalt des &lt;p&gt;Tags ändert sich Buchstabe für Buchstabe,
+						während der Name eingegeben wird:</p>
+					<h3>Kleine Übersicht über die Angular Directiven</h3>
+					<table>
+						<thead>
+							<tr>
+								<td>Direktive</td>
+								<td>Beschreibung</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>ng-app</code></td>
+								<td>
+									<p>aktiviert AngularJS: Das ausgewiesene Element wird die Wurzel des Templates</p>
+								</td>
+							</tr>
+							<tr>
+								<td><code>ng-controller</code></td>
+								<td>
+									<p>weist einem Template eine Steuerung zu: Die beiden arbeiten nun über $scope zusammen</p>
+								</td>
+							</tr>
+							<tr>
+								<td><code>ng-bind</code></td>
+								<td>
+									<p>das ausgewiesene Element holt sich seinen Wert aus dem Datenmodell (live)</p>
+								</td>
+							</tr>
+							<tr>
+								<td><code>ng-disabled</code></td>
+								<td>
+									<p>das ausgewiesene Element wird gemäß einem boole'schen Wert aus dem Datenmodell aktiviert oder deaktiviert</p>
+								</td>
+							</tr>
+							<tr>
+								<td><code>ng-model</code></td>
+								<td>
+									<p>das ausgewiesene Element schreibt seinen Wert in das Datenmodell (live)
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td><code>ng-click</code></td>
+								<td>
+									<p>ein Klick auf das ausgewiesene Element ruft die gegebene Funktion in der Steuerung auf</p>
+								</td>
+							</tr>
+							<tr>
+								<td><code>ng-repeat</code></td>
+								<td>
+									<p>ähnlich zu ng-bind , das ausgewiesene Element wird aber wiederholt: Der Wert von ng-bind hat die Form variable in
+										array , wobei variable an das wiederholte Element weitergereicht wird. Um Pro- bleme mit Arrays zu vermeiden, in
+										denen sich Werte mit einfachen Datentypen wie Zahlen oder Strings wiederholen, empfiehlt es sich, noch den Ausdruck
+										track by $index anzuhängen.</p>
+								</td>
+							</tr>
+							<tr>
+								<td><code>ng-show/ng-hide</code></td>
+								<td>
+									<p>das ausgewiesene Element wird gemäß einem boole'schen Wert aus dem Datenmodell eingeblendet oder ausgeblendet</p>
+								</td>
+							</tr>
+							<tr>
+								<td><code>ng-cloak</code></td>
+								<td>
+									<p>ähnlich zu ng-bind , das ausgewiesene Element wird aber wiederholt: Der Wert von ng-bind hat die Form variable in
+										array , wobei variable an das wiederholte Element weitergereicht wird. Um Pro- bleme mit Arrays zu vermeiden, in
+										denen sich Werte mit einfachen Datentypen wie Zahlen oder Strings wiederholen, empfiehlt es sich, noch den Ausdruck
+										track by $index anzuhängen.</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>Eine besondere Direktive ist ng-bind . Sie kommt sehr häufig vor und es ist nicht immer prak- tisch, ein HTML-Element
+						zu schreiben, nur weil man irgendwo ein Stück Text in das Template einbauen möchte. Daher kann man ng-bind auch als
+						{{ }} schreiben.</p>
+					<p>Die meisten Direktiven erlauben außerdem die Verwendung von Ausdrücken als Werte. Hier sind drei Beispiele: {{ x + 1}}
+						<br> {{ name.toLower() }} <br>{{ !done }}</p>
+					<p>Die Syntax dieser AngularJS-Ausdrücke ist an JavaScript angelehnt, die vollständige Sprache steht allerdings nicht zur
+						Verfügung.
+					</p>
+					<h3>Form validation</h3>
+					<pre>
+						<code> 
+                            &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Form Validation&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+        body{
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        form{
+            white-space: pre;
+            font-family: monospace;
+        }
+        input.ng-valid{
+            background-color: #EEFFEE;
+        }
+        input.ng-invalid{
+            background-color: #FFEEEE;
+        }
+    &lt;/style&gt;
+    &lt;script src="http://singlepage.info/g/angular.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+
+        let HelloForm = angular.module('HelloForm', []);
+
+        HelloForm.controller('ctrl', ($scope) =&gt; {
+            $scope.user = {};
+        });
+
+    &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div ng-app="HelloForm" ng-controller="ctrl"&gt;
+            &lt;form action="" name="myForm" novalidate=""&gt;
+                &lt;label for="fname"&gt;Vorname:&lt;/label&gt;
+                &lt;input name="fname" type="text" required ng-model="user.fname" ng-minlength="2"&gt;
+
+                &lt;label for="lname"&gt;Nachname:&lt;/label&gt;
+                &lt;input name="lname" type="text" required ng-model="user.lname" ng-minlength="2"&gt;
+
+                &lt;label for="email"&gt;E-Mail:&lt;/label&gt;
+                &lt;input name="email" type="email" required ng-model="user.email"&gt;
+
+                &lt;label for="year" required&gt;Geburtsjahr:&lt;/label&gt;
+                &lt;input name="year" type="number" ng-model="user.year" ng-minlength="2" ng-maxlength="4"&gt;
+
+                &lt;input type="submit" value="ok" ng-disabled="myForm.$invalid"&gt;
+            &lt;/form&gt;
+
+            &lt;p&gt;$scope.user: {{user}}&lt;/p&gt;
+            &lt;p&gt;$scope.myForm.$invalid: {{myForm.$invalid}}&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code>
+					</pre>
+					<p>Das novalidate Attribut in verhindert, dass der Webbrowser eigenständig HTML Validierungen vornimmt.</p>
+					<p>Die Attribute ng-minlength und ng-maxlength bestimmen die minimale und maximale Länge der einzugebenden Zeichenketten.</p>
+					<p>AngularJS setzt für uns die Boole'sche Variable $scope.myForm.$invalid auf true , solange mindestens ein Element des
+						Formulars falsch ausgefüllt ist.</p>
+					<p>Ihnen fällt sicher auf, dass die Felder, je nachdem, ob sie korrekt ausgefüllt sind oder nicht, auch noch die Farbe
+						ändern. Dieser Effekt wird dadurch erzielt, dass in den Zeilen 16-21 die beiden CSS-Klassen ng-valid und ng-invalid
+						mit dem jeweiligen Stil versehen werden. Das war's auch schon: AngularJS fügt diese Klassen automatisch den input -Elementen
+						je nach Validierungszustand hinzu!</p>
+					<p>Ähnlich zu $scope.myForm.$invalid stellt AngularJS auch Variablen zur Verfügung, die Informationen zu den Fehlern in
+						den einzelnen Elementen enthalten. Für die Jahreszahl in unserem Beispiel wäre das $scope.myForm.year.$error (ein Objekt).
+						Lassen Sie sich das Objekt zunächst anzeigen (mit {{ myForm.year.$error }} ), um zu verstehen, welche Eigenschaften
+						und Werte es enthält. Anschließend können Sie die ng-show -Direktive verwenden, um den Hilfstext immer dann anzuzeigen,
+						wenn das $error Objekt einen Fehler meldet.</p>
+					<h3>Rückker der Todoliste</h3>
+					<p>View</p>
+					<pre>
+						<code>
+					   &lt;!DOCTYPE html&gt;
+						&lt;html lang="en"&gt;
+						&lt;head&gt;
+							&lt;meta charset="UTF-8"&gt;
+							&lt;title&gt;TodoListe Angular&lt;/title&gt;
+							&lt;style type="text/css"&gt;
+								body{
+									font-family: sans-serif;
+									margin: 20px;
+								}
+								table{
+									border-collapse: collapse;
+								}
+								td{
+									padding: 8px;
+								}
+							&lt;/style&gt;
+							&lt;script src="http://singlepage.info/g/angular.js"&gt;&lt;/script&gt;
+							&lt;script src="model-todolist.js"&gt;&lt;/script&gt;
+							&lt;script src="controller-todolist.js"&gt;&lt;/script&gt;
+						&lt;/head&gt;
+						&lt;body ng-app="Todo" ng-controller="ctrl" ng-cloak&gt;
+							&lt;h2&gt;To-dos&lt;/h2&gt;
+							&lt;table&gt;
+								&lt;tr ng-repeat="todo in myList.getList()"&gt;
+									&lt;td&gt;{{todo.text}}&lt;/td&gt;
+									&lt;td&gt;&lt;input type="checkbox" ng-model="todo.done"&gt;&lt;/td&gt;
+								&lt;/tr&gt;
+								&lt;tr&gt;
+									&lt;td&gt;&lt;input type="text" ng-model="newTodo"&gt;&lt;/td&gt;
+									&lt;td&gt;&lt;button ng-disabled="!newTodo" ng-click="add()"&gt;hinzufügen&lt;/button&gt;&lt;/td&gt;
+								&lt;/tr&gt;
+							&lt;/table&gt;
+							&lt;button ng-click="myList.dump()"&gt;in der Konsole anzeigen&lt;/button&gt;
+							&lt;button ng-click="myList.clean()"&gt;erledigte To-dos löschen&lt;/button&gt;
+						&lt;/body&gt;
+						&lt;/html&gt;
+					   </code>
+					</pre>
+					<p>Controller</p>
+					<pre>
+						<code>
+							   angular.module('Todo', [])
+								.controller('ctrl', $scope => {
+									
+									$scope.myList = new TodoList();
+
+									$scope.add = () => {
+										$scope.myList.add($scope.newTodo);
+										$scope.newTodo = "";
+									};
+								});
+						   </code>
+					</pre>
+					<p>Model</p>
+					<pre>
+						<code>
+							'use strict'
+
+
+							class TodoList{
+
+								constructor() {
+									this.list = ["Test Element"];
+								}
+
+								getList() {
+									return this.list;
+								}
+
+								add(t){
+									this.list.push({text: String(t), done: false});
+								}
+
+								set(ix, done){
+									this.list[ix].done = done;
+								}
+
+								clean(){
+									let cleanedList = [];
+
+									this.list.forEach(el => {
+										if(!el.done){
+											cleanedList.push(el);
+										}
+									});
+									this.list = cleanedList;
+								}
+
+								dump(){
+									this.list.forEach(
+										(t,i) => {console.log('Index: ' + i + ' ' + t.text + ' status: ' + t.done);
+										console.log('------');
+									});
+								}
+							}
+						</code>
+					</pre>
+					<h3>Zusammenfassung</h3>
+					<ul>
+						<li>AngularJS erleichtert das Programmieren der Präsentation durch einen Template-Mechanismus, der auf HTML-Attribute
+							setzt: sogenannte Direktiven. Die manuelle Manipulation des DOM entfällt dadurch.</li>
+						<li>AngularJS stellt Datenbindung (engl. data binding) zur Verfügung. Sie arbeitet automa- tisch, live und bidirektional.</li>
+						<li>AngularJS bietet zahlreiche Hilfsmittel für die Validierung von HTML-Formularen.</li>
+					</ul>
+				</article>
+			</section>
+		</main>
+
+		<aside role="complementary" id="linklisten" class="linklisten">
+			<h2 class="hideme">Linklisten</h2>
+			<section id="#">
+				<h3>links zu Thema </h3>
+				<ul>
+					<li><a href="https://babeljs.io">Babel transpiler</a></li>
+				</ul>
+			</section>
+		</aside>
+
+		<footer role="contentinfo">
+			<h2>Infos über diese Webseite</h2>
+			<small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
+			<address>
+				<p>NAME | Straße | PLZ Ort | LAND</p>
+			</address>
+		</footer>
+	</div>
+</body>
+
+</html>
