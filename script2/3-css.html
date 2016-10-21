@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML mühelos manipuliert</title>
+
+    <meta name="description" content="Workshop HTML...">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link href="css/normalize.css" rel="stylesheet" media="all">
+    <link href="css/master.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+
+</head>
+<body>
+    <div id="site-wrapper">
+        <header role="banner" class="pageheader">
+        <h1>Jetzt geht's in CSS</h1>
+    </header>
+    <nav role="navigation" id="nav" class="navmain">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="2-manipulator.html">Jetzt werden Sie Manipulator</a></li>
+        <li><a href="#">Die erste Anwendung</a></li>
+        <li><a href="4-html.html">Auftritt Superheld Angular</a></li>   
+        <li><a href="5-events.html">Server Communication</a></li>
+        <li><a href="6-attribute.html">http Protokoll</a></li>      
+      </ul>
+    </nav>
+
+    <main role="main" aria-labeledby="content">
+      <section>
+        <header>
+          <p></p>
+          <img srcset="" src="" alt="">
+        </header>
+        <article>
+            <h2>classList und DOMTokenList</h2>
+            <p>Jedes NodeObject hat neben der Eigenschaft innerHTML auch eine Eigenschaft namens <strong>classlist</strong>, das seine CSS-Klassen repräsentiert</p>
+            <p><code>document.querySelector('#diesdas').classList</code></p>
+            <p>Sie erhalten eine sogenannte <strong>DOMTokenList</strong> zurück, diese verhält sich ähnlich wie ein Array. Sie können zB. die Eigenschaft .length verwenden. In der DOMTokenList können Elemente mit der dem gleichen Wert NICHT zweimal vorkommen. Auch die Methoden verhalten sich unterschiedlich und zwar gibt es KEIN push, pop ,sort</p>
+            <h2>Methoden von classList</h2>
+            <h3>Mehr Klassen mit add</h3>
+            <p><code>document.querySelectorAll('li').classList.add('highlight')</code></p>
+            <h3>Was zuviel ist, ist zuviel - mit remove</h3>
+            <p><code>document.querySelectorAll('li').classList.remove('highlight')</code></p>
+            <h3>Wechselspiel mit toggle</h3>
+            <p>document.querySelectorAll('li')classList.toggle('highlight')</p>
+            <h3>Are you there - mit contains</h3>
+            <p>document.querySelectorAll('li').classList.contains('highlight')</p>
+            <h2>Nur highlighten, was man highlighten will - mit filter</h2>
+            <p>Array.from(document.querySelectorAll('#chat_members'))</p>
+        </article>
+      </section>
+    </main>
+
+    <aside role="complementary" id="linklisten" class="linklisten">
+        <h2 class="hideme">Linklisten</h2>
+        <section id="#">
+            <h3>links zu Thema </h3>
+            <ul>
+                <li><a href="https://babeljs.io">Babel transpiler</a></li>
+            </ul>
+        </section>
+    </aside>
+
+    <footer role="contentinfo">
+      <h2>Infos über diese Webseite</h2>
+        <small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
+        <address><p>NAME | Straße |  PLZ Ort  |  LAND</p></address>
+    </footer>
+    </div>
+</body>
+</html>

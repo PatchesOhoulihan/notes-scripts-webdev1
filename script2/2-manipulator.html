@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML mühelos manipuliert</title>
+
+    <meta name="description" content="Workshop HTML...">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link href="css/normalize.css" rel="stylesheet" media="all">
+    <link href="css/master.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+
+</head>
+<body>
+    <div id="site-wrapper">
+        <header role="banner" class="pageheader">
+        <h1>Jetzt werden Sie Manipulator</h1>
+    </header>
+    <nav role="navigation" id="nav" class="navmain">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Jetzt werden Sie Manipulator</a></li>
+        <li><a href="3-css.html">Die erste Anwendung</a></li>
+        <li><a href="4-html.html">Auftritt Superheld Angular</a></li>   
+        <li><a href="5-events.html">Server Communication</a></li>
+        <li><a href="6-attribute.html">http Protokoll</a></li>      
+      </ul>
+    </nav>
+
+    <main role="main" aria-labeledby="content">
+      <section>
+        <header>
+          <p></p>
+          <img srcset="" src="" alt="">
+        </header>
+        <article>
+            <h2>Hello DOM mit querySelector und innerHTML</h2>
+            <p>HTML: <code><br> &lt;h1&gt;Hello &lt;em&gt;World&lt;/em&gt;&lt;/h1&gt; <br> &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;</code></p>
+            <p>JS: <pre>
+                        <code>
+                            document.querySelector('h1').innerHTML = "<em>Hello</em> Dom";
+                        </code>
+                    </pre>
+            </p>
+            <h2>Ein Blick hinter die Kulissen</h2>
+            <p>Mit der Funktion <code>document.querySelector</code> können Sie HTML-Elemente innerhalb des HTML-Dokuments auswählen. Der Parameter ist ein beliebiger CSS-Selector <br> <code>document.querySelector('h1') returns First h1-Element as JS-Object</code></p>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Beispiel</td>
+                        <td>Beschreibung</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Univeral selector</td>
+                        <td><code>*</code></td>
+                        <td>Selektiert ein beliebiges Element. Diesen Selektor sollten Sie nicht ohne weitere Einschränkungen verwenden, da das Selektieren aller Elemente einer Website sehr viel Rechenzeit in Anspruch nehmen kann.</td>
+                    </tr>
+                    <tr>
+                        <td>Type Selector</td>
+                        <td><code>h1</code></td>
+                        <td>Selektiert alle Elemente eines bestimmten Typs</td>
+                    </tr>
+                    <tr>
+                        <td>ID Selector</td>
+                        <td><code>#some-id</code></td>
+                        <td>Selektiert genau ein Element mit der gegebenen id</td>
+                    </tr>
+                    <tr>
+                        <td>Class selector</td>
+                        <td><code>.some-class</code></td>
+                        <td>Selektiert alle Elemente, denen die angegebenen Klasse zugewiesen wurde. Beachten Sie, dass ein Element mehere Klassen haben kann.</td>
+                    </tr>
+                    <tr>
+                        <td>,</td>
+                        <td><code>h1, p, .go</code></td>
+                        <td>Das Komma ist selbst kein Selektor, sondern erlaubt es, mehrere Selektoren zu kombinieren. Im Beispiel würden alle h1-Elemente, alle p-element und alle Elemente der Klasse go selektiert.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Genauer gesagt handelt es sich bei dem Rückgabewert von <code>document.querySelector</code> um ein <strong>Element-Objekt</strong></p>
+            <p>Der Rückgabewert von .innerHTML ist ein String. Der Wert von innerHTML lässt sich mit <code>.innerHTML = irgendwas</code> ändern</p>
+
+            <h2>Suchen und finden von document.querySelectorAll im DOM</h2>
+            <p>Mit Hilfe von <code>document.querySelector</code> lassen sich JS Element Objecte aus dem DOM extrahieren. Tatsächlich ist das ganze HTML-Dokument nichts anders als eine Sammelung von HTML-Elementen, die in einer Baumstruktur angeordnet sind. Dem sogenannten DOM(Document Object model)</p>
+            <h2>..sie alle zu finden ... - querySelectorAll</h2>
+            <p>Im Gegensatz zu <code>querySelector</code>, das den ersten Treffer zurückgibt, werden mit <code>querySelectorAll</code> alle zum Selektor passenden Elemente zurück gegeben.</p>
+            <p>Als Rückgabewert erhält man eine <strong>NodeList</strong> das mehrere Elemente(Konten/Nodes) in einer Liste zusammenfasst</p>
+            <p>Die Nodeliste verhält sich ähnlich wie ein Array. Sie können mit dem Index-Operator auf seine Elemente zugreifen: <br><code>document.querySelectorAll('h2')<strong>[0]</strong>.innerHTML</code></p>
+            <p>document.querySelectorAll('h2')<strong>.length</strong></code> lässt sich die Menge der gefunden Elemente überprüfen.</p>
+            <p>Um die Elemente einer Nodelist durchlaufen zu können muss eine forEach Schleife verwendet werden. Vorher muss die Nodeliste jedoch noch in ein Array umgewandelt werden. <br>Example:
+            <pre>
+                <code>
+                    let heading = Array.from(document.querySelectorAll('h2'));
+                    heading.forEach(h => console.log(h.innerHTML));
+                </code>
+            </pre>
+            </p>
+            <h2>Attribute Selektoren</h2>
+            <p>Mit diesen ist es möglich auf Elemente mit bestimmten Attributen und Werten zuzugreifen.</p>
+            <table>
+                <thead>
+                    <td>Selektoren</td>
+                    <td>Beispiel zu <br> <code>&lt;img src="funny_cat.png"/&gt;</code></td>
+                    <td>Beschreibung</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[attr]</td>
+                        <td><code>[src]</code></td>
+                        <td>Selektiert alle Elemente mit dem angebenen Attribut. Der Attributwert spielt dabei keine Rolle(<strong>attribute presence</strong>) <br>Example: <code>document.querySelector('[src]');</code></td>
+                    </tr>
+                    <tr>
+                        <td>[attr=val]</td>
+                        <td><code>[src="funny_cat.png"]</code></td>
+                        <td>Selektiert Elemente, bei denen das angebene Attribut mit GENAU dem angebenen Wert(funny_cat.png) enthalten(<strong>exact attribute match</strong>) <br>Example: <code>document.querySelector("[src='funny_cat.png']")</code></td>
+                    </tr>
+                    <tr>
+                        <td>[attr*=val]</td>
+                        <td>
+                            <code>
+                                [src*=cat]
+                            </code>
+                        </td>
+                        <td>Selektiert Elemente, bei denen das angebene Attribute(src) den Wert(cat) als Teilstring enthält (<strong>substring attibute match</strong>) <br>Example: document.querySelector('[src*=cat]')<code></code></td>
+                    </tr>
+                    <tr>
+                        <td>[attr^=val]</td>
+                        <td><code>[src^=funny]</code></td>
+                        <td>Selektiert Elemente, bei denen das angegebene Attribute(src) mit dem Wert(funny) beginnt. <br>Example: </td>
+                    </tr>
+                    <tr>
+                        <td>[attr$=val]</td>
+                        <td><code>[src$=png]</code></td>
+                        <td>Selektiert Elemente, bei denen das angegebene Attribut(src) auf den angegebenen Wert(png) endet.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Combinator Selektoren</h2>
+            <table>
+                <thead>
+                    <td>Name</td>
+                    <td>Beispiel</td>
+                    <td>Beschreibung</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Descendent Combinator(Leerzeichen)</td>
+                        <td><code>li a</code></td>
+                        <td>Selektiert Elemente, die die Nachfahren eines anderen angegebenen Elements sind. Im Beispiel werden alle a-Elemente selektiert, die Nachfahren von li sind, egal wie viele Ebenen dazwischen liegen.</td>
+                    </tr>
+                    <tr>
+                        <td>Next Sibling Combinator (+)</td>
+                        <td><code>li#start + li</code></td>
+                        <td>Mit diesem Selektor können Sie das Element auswählen, das im HTML-Quelltext DIREKT NACH dem angegeben Element auf der gleichen Ebene(Geschwister Element) folgt.</td>
+                    </tr>
+                    <tr>
+                        <td>General Sibling Combinator</td>
+                        <td>
+                            <code>
+                                li#start ~ li
+                            </code>
+                        </td>
+                        <td>Mit diesem Selektor können Sie alle Elemente auswählen, die im HTML-Quelltext nach dem angegeben Element auf der gleichen Ebene (Geschwister-Element) folgen. Es wird NICHT NUR DAS DIREKT FOLGENDE Element gewählt, wie beim Next sibling combinator.</td>
+                    </tr>
+                    <tr>
+                        <td>Child Selector</td>
+                        <td><code>li > a > span</code></td>
+                        <td>Mit diesem Selektor lassen sich Elemente auswählen die DIREKTE NACHFAHREN von einander sind.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Pseudo Classes</h2>
+            <p>Mit sogenannten pseudo classes erlauben es, Selektoren weiter zu spezialisieren.</p>
+            <table>
+                <thead>
+                    <td>Name</td>
+                    <td>Beispiel</td>
+                    <td>Beschreibung</td>
+                </thead>
+                <tr>
+                    <td>:first-child</td>
+                    <td><code>ul li:first-child</code></td>
+                    <td>Mit dieser Pseudo-Klasse sprechen Sie das erste Kind-Element eines übergeordneten Containers(ul) an. Sollte das Element(li) NICHT den richtigen Type haben wird nichts selektiert.</td>
+                </tr>
+                <tr>
+                    <td>:last-child</td>
+                    <td><code>ul li:last-child</code></td>
+                    <td>Aquivalent zu :last-child, selektiert das letzte Element.</td>
+                </tr>
+                <tr>
+                    <td>:first-of-type</td>
+                    <td><code>div p:first-of-type</code></td>
+                    <td>Mit dieser Pseudo-Klasse sprechen Sie immer das erste Kind eines angegebenen Element-typs an.</td>
+                </tr>
+                <tr>
+                    <td>:last-of-type</td>
+                    <td><code>div p:last-of-type</code></td>
+                    <td>Äquivalent zu :first-of-type, spricht immer das letzte Element an.</td>
+                </tr>
+                <tr>
+                    <td>:only-child</td>
+                    <td><code>#article p:only-child</code></td>
+                    <td>Diese Klasse selektiert ein Element nur, wenn es sich um das EINZIGE KIND handelt.</td>
+                </tr>
+                <tr>
+                    <td>:empty</td>
+                    <td><code>div:empty</code></td>
+                    <td>Spricht nur Elemente an, die ohne Kind-Elemente sind. Inhalt in Form von Text wird dabei ebenfalls als Kind-element betrachtet, Kommentare jedoch nicht.</td>
+                </tr>
+                <tr>
+                    <td>:nth-child(x)</td>
+                    <td><code>ul li:nth-child(2)</code></td>
+                    <td>Spricht das n-te Element an</td>
+                </tr>
+                <tr>
+                    <td>:nth-type-of-child(x)</td>
+                    <td><code>div p:nth-type-of-child(5)</code></td>
+                    <td>Spricht das n-te element vom angegeben typ an.</td>
+                </tr>
+                <tr>
+                    <td>:not(selector)</td>
+                    <td><code>:not(span)</code></td>
+                    <td>Negation. Wählt Elemente aus, wenn sie nicht dem in Klammern angegeben Selektor entsprechen. Im Beispiel würden alle Elemente bis auf das span angesprochen werden.</td>
+                </tr>
+            </table>
+            <h2>Kurz und Knapp</h2>
+            <p>Da man document.querySelectorAll in der Praxis sehr häufig tippen muss wäre eine kürzere schreibweise extrem nütztlich.</p>
+            <pre>
+                <code>
+                    const $ = document.querySelector.bind(document);
+                    const $$ = document.querySelectorAll.bind(document);
+                </code>
+            </pre>
+        </article>
+      </section>
+    </main>
+
+    <aside role="complementary" id="linklisten" class="linklisten">
+        <h2 class="hideme">Linklisten</h2>
+        <section id="#">
+            <h3>links zu Thema </h3>
+            <ul>
+                <li><a href="https://babeljs.io">Babel transpiler</a></li>
+            </ul>
+        </section>
+    </aside>
+
+    <footer role="contentinfo">
+      <h2>Infos über diese Webseite</h2>
+        <small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
+        <address><p>NAME | Straße |  PLZ Ort  |  LAND</p></address>
+    </footer>
+    </div>
+</body>
+</html>
