@@ -1,62 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Getting Started with Single Page Application</title>
+	<meta charset="utf-8">
+	<title>Getting Started with Single Page Application</title>
 
-    <meta name="description" content="Workshop HTML...">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Workshop HTML...">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <link href="css/normalize.css" rel="stylesheet" media="all">
-    <link href="css/master.css" rel="stylesheet" media="all">
-    <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+	<link href="css/normalize.css" rel="stylesheet" media="all">
+	<link href="css/master.css" rel="stylesheet" media="all">
+	<!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 
 </head>
+
 <body>
-    <div id="site-wrapper">
-        <header role="banner" class="pageheader">
-        <h1>Getting Started</h1>
-    </header>
-    <nav role="navigation" id="nav" class="navmain">
-      <h2>Navigation</h2>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="mvc.html">Model View Controller</a></li>
-        <li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
-        <li><a href="auftrtt-angular.html">Auftritt Superheld Angular</a></li>   
-        <li><a href="Javascript-server.html">Server Communication</a></li>
-        <li><a href="http.html">http Protokoll</a></li> 
-        <li><a href="#">Websockets</a></li>           
-      </ul>
-    </nav>
+	<div id="site-wrapper">
+		<header role="banner" class="pageheader">
+			<h1>Getting Started</h1>
+		</header>
+		<nav role="navigation" id="nav" class="navmain">
+			<h2>Navigation</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="mvc.html">Model View Controller</a></li>
+				<li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
+				<li><a href="auftrtt-angular.html">Auftritt Superheld Angular</a></li>
+				<li><a href="Javascript-server.html">Server Communication</a></li>
+				<li><a href="http.html">http Protokoll</a></li>
+				<li><a href="#">Websockets</a></li>
+			</ul>
+		</nav>
 
-    <main role="main" aria-labeledby="content">
-      <section>
-        <header>
-          <p>A Course for experienced Developers who dive into Javascript</p>
-          <img srcset="" src="" alt="">
-        </header>
-        <article>
-            <h2></h2>
-        </article>
-      </section>
-    </main>
+		<main role="main" aria-labeledby="content">
+			<section>
+				<header>
+					<p>A Course for experienced Developers who dive into Javascript</p>
+					<img srcset="" src="" alt="">
+				</header>
+				<article>
+					<h2>Einleitung.</h2>
+					<p>Denken Sie an eine simple Chat-Anwendung. Ein Benutzer gibt einen Text ein, der seinem Gesprächspartner unmittelbar
+						angezeigt werden soll.</p>
+					<p>Der erste Teil stellt kein Problem dar. Sobald der Benutzer seine Eingabe bestätigt, kann die Nachricht per AJAX zum
+						Server gesendet werden. Und nun? Der Server müsste jetzt dem Web- browser des Gesprächspartners mitteilen: "Hey, hier
+						ist eine neue Nachricht für Dich!" Genau das ist aber laut HTTP-Protokoll gar nicht möglich. Es ist immer der Client,
+						der die Initiative ergreift und den Server mit einer HTTP-Anfrage kontaktiert.</p>
+					<p>Die nächstliegende Lösung ist das bereits in Abschnitt 6.1 angesprochene Polling.</p>
+					<p>Die Anfragefrequenz ist der heikle Punkt. Ist die Frequenz zu hoch, prasseln eine Menge über- flüssige Anfragen auf
+						den Server, Datenvolumen wird verbraucht und die Serverlast steigt (denken Sie an die Grillfeten!) Ist die Frequenz
+						zu niedrig, entstehen störende Wartezeiten, und der Chat fühlt sich an wie E-Mail.</p>
+					<p>Ein Trick schafft Abhilfe. Beim sogenannten Long-Polling schickt der Client eine HTTP-Anfrage zum Server, dieser antwortet
+						aber erst dann, wenn auch tatsächlich Informationen für den Cli- ent vorliegen. Natürlich kann die Anfrage nicht beliebig
+						lange offengehalten werden, da es sonst zu einem Timeout kommt.</p>
+					<p>Long-Polling funktioniert in der Praxis, ist aber eigentlich keine elegante Lösung. Der Webser- ver tut so, als sei
+						er langsam, weil er keine andere Möglichkeit hat, Daten zu einem beliebigen Zeitpunkt zum Client zu pushen.</p>
+					<h3>Das Websocket-Protokoll</h3>
+					<p>Wie machen native Chat-Anwendungen das eigentlich? Nun ja, die sind nicht auf HTTP beschränkt! Eine native Anwendung
+						kann ihr eigenes Netzwerk-Protokoll verwenden, das Kommunikation in beide Richtungen (bidirektionale Kommunikation)
+						zulässt.
+					</p>
+					<p>HTTP baut, wie alle anderen Netzwerk-Protokolle im Internet, auf TCP/IP auf. Das TCP in TCP/ IP stellt nativen Programmen
+						eine Schnittstelle zur Verfügung, die direkte, bidirektionale Kom- munikation erlaubt. Man spricht in dem Zusammenhang
+						von sogenannten Sockets.</p>
+					<p>Genau dies macht das 2011 eingeführte WebSocket-Protokoll 11 möglich! Ein Webbrowser, der das Protokoll unterstützt,
+						kann innerhalb einer HTTP-Anfrage mittels eines speziellen Headers den Server bitten, aus HTTP »auszubrechen«. Falls
+						der Server das Protokoll ebenfalls unter- stützt, kann die TCP-Verbindung daraufhin von beiden Seiten benutzt werden,
+						um Nachrich- ten auszutauschen.</p>
+					<h3>Socket.io</h3>
+					<p>Als JavaScript-Programmierer haben Sie Glück! Das Socket.IO-Projekt 12 stellt mit dem gleich- namigen socket.io -Modul
+						eine überaus beliebte und erfolgreiche Open Source-JavaScript- Bibliothek zur Verfügung, die das Verwenden von Websockets
+						schon fast zum Kinderspiel macht.
+					</p>
+					<p>Test Code in Demos</p>
+					<h3>Trautes Heim, Glück allein</h3>
+					<p>as sogenannte Loopback. Auch für dieses »eingebaute« Netzwerk ist ein Adressbereich reserviert worden, nämlich der Bereich
+						127.0.0.1 - 127.255.255.255. Wichtig ist eigentlich nur die Adresse 127.0.0.1. Sie stellt die Adresse des eigenen Rechners
+						in diesem Loopback-Netzwerk dar. Kür- zer ausgedrückt: 127.0.0.1 ist immer eine IP-Adresse, unter der der eigene Rechner
+						erreichbar ist.
+					</p>
+					<p>Entsprechend ist »localhost« nichts weiter als der Name der IP-Adresse 127.0.0.1! Mit der Anweisung listen(8081, 'localhost')
+						weisen Sie den Webserver also an, auf Port 8081 der Adresse 127.0.0.1 zu horchen.</p>
+					<h3>Angriff der klon TodoListen</h3>
+					<p>Eine wesentliche Neuerung ist, dass jeder der Handler per io.emit() einen Event («push») an alle verbundenen Clients
+						sendet. Sobald sich die To-do-Liste auf dem Server ändert, wer- den also sofort alle Clients benachrichtigt und erhalten
+						die aktuellen Daten.</p>
+					<p>➤ Anstatt AJAX-Anfragen mit AngularJS' $http -Service werden Websockets-Events mit der socket.emit() -Methode von Socket.IO
+						zum Server geschickt. <br>➤ Die Aufrufe unserer refresh -Funktion fallen weg! Es ist nicht mehr der Client, der sich
+						nach jeder Änderung die aktuelle To-do-Liste vom Server holt — es ist der Server, der sie zum Client pusht. <br>➤ Aus
+						diesem Grund kommt ein Handler dazu, der mit socket.on() auf »push«-Events vom Server horcht (Zeilen 47-50) und die
+						aktuelle To-do-Liste entgegennimmt.</p>
+					<h4>$scope.$apply()</h4>
+					<p>Eine Besonderheit ist der Aufruf von $scope.$apply()</p>
+					<p>Die Datenbindung von AngularJS arbeitet normalerweise vollautomatisch. Wenn sich im $scope -Objekt etwas ändert, wird
+						das Template neu dargestellt. AngularJS kann freilich nicht pausenlos entsprechende Vergleiche durchführen (aus Performancegründen).
+						Es macht dies nur zu bestimmten, »kritischen« Zeitpunkten, an denen eine Änderung wahr- scheinlich ist — z. B. wenn
+						ein Aufruf von $http.get() abgearbeitet wird!</p>
+					<p>In Codebeispiel 7.4 ändern wir das $scope -Objekt aber, ohne einen der AngularJS-eige- nen Mechanismen zu benutzen —
+						aus der Sicht von AngularJS sozusagen aus heiterem Himmel. Damit die Änderung sofort in das Template übernommen wird,
+						braucht es daher den Aufruf von $scope.$apply() .</p>
+				</article>
+			</section>
+		</main>
 
-    <aside role="complementary" id="linklisten" class="linklisten">
-        <h2 class="hideme">Linklisten</h2>
-        <section id="#">
-            <h3>links zu Thema </h3>
-            <ul>
-                <li><a href="https://babeljs.io">Babel transpiler</a></li>
-            </ul>
-        </section>
-    </aside>
+		<aside role="complementary" id="linklisten" class="linklisten">
+			<h2 class="hideme">Linklisten</h2>
+			<section id="#">
+				<h3>links zu Thema </h3>
+				<ul>
+					<li><a href="https://babeljs.io">Babel transpiler</a></li>
+				</ul>
+			</section>
+		</aside>
 
-    <footer role="contentinfo">
-      <h2>Infos über diese Webseite</h2>
-        <small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
-        <address><p>NAME | Straße |  PLZ Ort  |  LAND</p></address>
-    </footer>
-    </div>
+		<footer role="contentinfo">
+			<h2>Infos über diese Webseite</h2>
+			<small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
+			<address>
+				<p>NAME | Straße | PLZ Ort | LAND</p>
+			</address>
+		</footer>
+	</div>
 </body>
+
 </html>

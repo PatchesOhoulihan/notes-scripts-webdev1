@@ -1,62 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Getting Started with Single Page Application</title>
+	<meta charset="utf-8">
+	<title>Getting Started with Single Page Application</title>
 
-    <meta name="description" content="Workshop HTML...">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Workshop HTML...">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <link href="css/normalize.css" rel="stylesheet" media="all">
-    <link href="css/master.css" rel="stylesheet" media="all">
-    <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+	<link href="css/normalize.css" rel="stylesheet" media="all">
+	<link href="css/master.css" rel="stylesheet" media="all">
+	<!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 
 </head>
+
 <body>
-    <div id="site-wrapper">
-        <header role="banner" class="pageheader">
-        <h1>Getting Started</h1>
-    </header>
-    <nav role="navigation" id="nav" class="navmain">
-      <h2>Navigation</h2>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="mvc.html">Model View Controller</a></li>
-        <li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
-        <li><a href="auftrtt-angular.html">Auftritt Superheld Angular</a></li>   
-        <li><a href="Javascript-server.html">Server Communication</a></li>
-        <li><a href="#">http Protokoll</a></li> 
-        <li><a href="websockets.html">Websockets</a></li>           
-      </ul>
-    </nav>
+	<div id="site-wrapper">
+		<header role="banner" class="pageheader">
+			<h1>Getting Started</h1>
+		</header>
+		<nav role="navigation" id="nav" class="navmain">
+			<h2>Navigation</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="mvc.html">Model View Controller</a></li>
+				<li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
+				<li><a href="auftrtt-angular.html">Auftritt Superheld Angular</a></li>
+				<li><a href="Javascript-server.html">Server Communication</a></li>
+				<li><a href="#">http Protokoll</a></li>
+				<li><a href="websockets.html">Websockets</a></li>
+			</ul>
+		</nav>
 
-    <main role="main" aria-labeledby="content">
-      <section>
-        <header>
-          <p>A Course for experienced Developers who dive into Javascript</p>
-          <img srcset="" src="" alt="">
-        </header>
-        <article>
-            <h2></h2>
-        </article>
-      </section>
-    </main>
+		<main role="main" aria-labeledby="content">
+			<section>
+				<header>
+					<p>A Course for experienced Developers who dive into Javascript</p>
+					<img srcset="" src="" alt="">
+				</header>
+				<article>
+					<h2>Ajax</h2>
+					<p>AngularJS stellt ein Objekt ( $http ) zur Verfügung, das Methoden enthält, um HTTP-Anfragen von JavaScript aus zu versenden,
+						ohne dass man sich um die Implementierungsdetails des XMLHttpRequest -Objekts kümmern müsste. Damit ist der AJAX-Client-Code
+						schnell erstellt:</p>
+					<pre>
+						<code>
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html lang="en"&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="UTF-8"&gt;
+                                    &lt;title&gt;AjaxTest&lt;/title&gt;
 
-    <aside role="complementary" id="linklisten" class="linklisten">
-        <h2 class="hideme">Linklisten</h2>
-        <section id="#">
-            <h3>links zu Thema </h3>
-            <ul>
-                <li><a href="https://babeljs.io">Babel transpiler</a></li>
-            </ul>
-        </section>
-    </aside>
+                                    &lt;style type="text/css"&gt; 
+                                        body {
+                                            font-family : sans-serif;
+                                            margin: 20px;
+                                        }
+                                    &lt;/style&gt;
+                                    &lt;script src="http://singlepage.info/g/angular.js"&gt;&lt;/script&gt;
+                                    &lt;script&gt;
+                                        angular.module('AjaxTest', [])
+                                        .controller('ctrl', ($scope, $http) =&gt; {
+                                            let fetchTime = () =&gt;{
+                                                $http.get('/getTime')
+                                                .success((data) =&gt;{
+                                                    $scope.anzeige = data;
+                                                });
+                                                setTimeout(fetchTime,1000);
+                                            }
+                                            fetchTime();
+                                        })
+                                    &lt;/script&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;div ng-app="AjaxTest" ng-controller="ctrl"&gt;{{anzeige}}&lt;/div&gt;
+                                &lt;/body&gt;
+                                &lt;/html&gt;
+                            </code>
+					</pre>
+					<p>die $http-Methode get() aufgerufen, die eine HTTP-Anfrage an die gegebene URL sendet. Die Kette wird mit einem Aufruf
+						von success() fortgesetzt. Damit wird die Funktion definiert, die sich um die Daten kümmern soll, sobald die Antwort
+						vom Server eintrifft.</p>
+					<h3>setTimeout()</h3>
+					<p>Das erste Argument ist die aufzurufende Funktion, das zweite Argument ist eine Verzögerung in Millisekunden.</p>
+					<p><code>setTimeout( () => { console.log("Hallo") }, 3000);</code></p>
+					<p>Dabei ist zu beachten, dass die Verzögerung als Minimalwert ausgelegt wird, d. h. im Bei- spiel erfolgt die Ausgabe
+						nach frühestens 3 Sekunden. Falls zum gewünschten Zeitpunkt gerade anderer Code abgearbeitet wird, dauert es eventuell
+						länger, bis der vorgemerkte Funktionsaufruf zum Zuge kommt.</p>
+					<p>Das ständige Senden von Anfragen nennt man übrigens Polling. Wenn Sie sich als Frontend- Programmierer bei den Kollegen
+						in der Server-Administration nicht unbeliebt machen wollen, sollten Sie mit Polling zurückhaltend sein.</p>
+					<h3>Die Same-Origin-Policy</h3>
+					<p>Vielleicht sind Sie bereits auf die Idee gekommen, auf eine externe Webseite zuzugreifen?</p>
+					<p>Aus Sicherheitsgründen gilt nämlich die Same-Origin-Policy, d. h. JavaScript-Code darf per AJAX (also XMLHttpRequest
+						-Objekt) nur auf URLs zugreifen, die in derselben Domain sind wie die Seite, in der der Code gestartet wurde.</p>
+					<p>Die Fehlermeldung weist auf Autorisierungsmechanismen hin, um diese Einschränkung zu umgehen: Der Server, an den die
+						Anfrage geht, muss per HTTP-Header bestätigen, dass er die Anfrage erlaubt. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS"> Lösung</a></p>
+					<h3>JSON</h3>
+					<p>Die Daten werden in der text-basierten, sogenannten Java- Script Object Notation, kurz JSON, übertragen. Und zwar auch
+						dann, wenn auf dem Server gar nicht JavaScript läuft. Mittlerweile verfügen Sprachen wie PHP oder Java über Bibliotheken,
+						um ihre nativen Datenstrukturen nach JSON zu übersetzen.</p>
+					<p>Example:</p>
+					<pre>
+						<code>
+                            //Servercode
+                            server.get('/getData', (req, res) => {
+                            let data = [ { produkt: "Katzenohren für den Monitor" },
+                                         { produkt: "aufblasbarer USB-Key" } ];
+                            res.send(data);
+                            });
 
-    <footer role="contentinfo">
-      <h2>Infos über diese Webseite</h2>
-        <small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
-        <address><p>NAME | Straße |  PLZ Ort  |  LAND</p></address>
-    </footer>
-    </div>
+                            //Clientcode
+                            $http.get("/getData").success(function(data) {
+                                $scope.anzeige = data[0].produkt;
+                                // 'Katzenohren für den Monitor'
+                            });
+                        </code>
+					</pre>
+					<h3>Konvertieren</h3>
+					<p>Manchmal ist es notwendig, händisch ein Objekt in einen solchen Standard-JSON-String zu verwandeln, oder umgekehrt aus
+						einem String wieder ein Objekt zu erzeugen. Dafür gibt es die JavaScript-Funktionen JSON.stringify() und JSON.parse()
+						:
+					</p>
+					<pre>
+						<code>
+                            JSON.stringify([{a: 7}, {a: 13} ]); // Objekt -> Standard-JSON-String
+                            JSON.parse('[{"a":7},{"a":13}]'); // Standard-JSON-String -> Objekt
+                        </code>
+					</pre>
+					<h3>Rest oder die Todo-Liste schlägt zurück</h3>
+					<p>Roy Thomas Fielding hat im Jahr 2000 einen Ansatz vorgeschlagen wie eine saubere HTTP- Schnittstelle aussehen könnte,
+						um Objekte zu manipulieren: Representational State Transfer (REST).
+					</p>
+					<p>REST bedient sich unter anderem der Tatsache, dass HTTP eigentlich mehr Anfrage-Typen kennt als nur GET und POST.</p>
+					<p>REST verwendet auch noch die weniger bekannten, PUT und DELETE. So könnte eine REST- konforme Schnittstelle für einen
+						To-do-Listen-Server aussehen:</p>
+					<p>➤ GET /todos - hole alle To-dos <br>➤ GET /todos/1 - hole To-do 1 <br>➤ POST /todos - füge To-do hinzu <br>➤ PUT /todos/1
+						- update (ändere) To-do 1 <br>➤ DELETE /todos/1 - lösche To-do 1</p>
+					<p>Example:</p>
+					<pre>
+						<code>
+							Testcode in demo/node-todo
+						</code>
+					</pre>
+				</article>
+			</section>
+		</main>
+
+		<aside role="complementary" id="linklisten" class="linklisten">
+			<h2 class="hideme">Linklisten</h2>
+			<section id="#">
+				<h3>links zu Thema </h3>
+				<ul>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS"> Cross Domain dies das</a></li>
+				</ul>
+			</section>
+		</aside>
+
+		<footer role="contentinfo">
+			<h2>Infos über diese Webseite</h2>
+			<small>Copyright &copy; <time datetime="2016">2016</time><a href="#">Impressum</a></small>
+			<address>
+				<p>NAME | Straße | PLZ Ort | LAND</p>
+			</address>
+		</footer>
+	</div>
 </body>
+
 </html>

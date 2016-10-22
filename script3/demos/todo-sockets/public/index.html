@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>To-do-Liste (Kapitel 7)</title>
+    <style type="text/css">
+      body  {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        padding: 8px;
+      }
+    </style>
+    <script src="http://singlepage.info/g/angular.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+
+      angular.module("Todo", []).controller("ctrl", ($scope, $http) => {
+         
+        // $scope.myList = { list: [] };
+
+        let socket = io.connect(); 
+
+        $scope.add = () => {
+          socket.emit("add", $scope.newTodo);
+          $scope.newTodo = "";
+        };
+
+        $scope.update = ix => {
+          socket.emit("update", ix, $scope.myList.list[ix]);
+        };
+
+        $scope.clean = () => {
+          socket.emit("clean");
+        };
+
+        $scope.dump = () => {
+          console.log($scope.myList);
+        };
+
+        socket.on("push", obj => {
+          $scope.myList = obj;
+          $scope.$apply();
+        });
+
+        socket.emit("get");
+
+      });
+
+    </script>
+  </head>
+
+  <body ng-app="Todo" ng-controller="ctrl" ng-cloak>
+    <h2>To-dos</h2> 
+    <table>
+      <tr ng-repeat="todo in myList.list">
+        <td>
+          {{ todo.text }}
+        </td>
+        <td>
+          <input type="checkbox" ng-model="todo.done"
+                 ng-click="update($index)" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" ng-model="newTodo.text" />
+        </td>
+        <td>
+          <button ng-disabled="!newTodo.text" ng-click="add()">
+            hinzufügen
+          </button>
+        </td>
+      </tr>
+    </table>
+    <br /><br />
+    <button  ng-click="dump()">in der Konsole anzeigen</button>
+    <button  ng-click="clean()">erledigte To-dos löschen</button>
+  </body>
+
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <title>socket.io Beispiel</title>
+
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    #nachricht {
+      white-space: pre;
+      font-family: monospace;
+    }
+  </style>
+
+<!-- Wo kommt denn /socket.io/socket.io.js her? Die
+Datei gibt's ja im Verzeichnis public/ gar nicht! Erinnern Sie sich, wie sich Socket.IO in den
+Express-Webserver einklinkt? Anfragen nach /socket.io/
+socket.io.js werden abgefangen: Die Socket.IO-Clientbibliothek wird automatisch ausgeliefert.
+Sie müssen sich um keine zusätzliche JavaScript-Datei für den Webbrowser kümmern! -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+    var socket = io.connect();
+
+    socket.on("nachricht", (str) => {
+
+      var el = document.querySelector("#nachricht");
+
+      el.textContent += str;
+
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <div id="nachricht"></div>
+
+</body>
+
+</html>

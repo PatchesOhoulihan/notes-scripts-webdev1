@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AjaxTest</title>
+
+    <style type="text/css"> 
+        body {
+            font-family : sans-serif;
+            margin: 20px;
+        }
+    </style>
+    <script src="http://singlepage.info/g/angular.js"></script>
+    <script>
+        angular.module('AjaxTest', [])
+        .controller('ctrl', ($scope, $http) => {
+            let fetchTime = () =>{
+                $http.get('/getTime')
+                .success((data) =>{
+                    $scope.anzeige = data;
+                });
+                setTimeout(fetchTime,1000);
+            }
+            fetchTime();
+        })
+    </script>
+</head>
+<body>
+    <div ng-app="AjaxTest" ng-controller="ctrl">{{anzeige}}</div>
+</body>
+</html>
