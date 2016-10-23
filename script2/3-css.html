@@ -50,7 +50,8 @@
             <h3>Are you there - mit contains</h3>
             <p>document.querySelectorAll('li').classList.contains('highlight')</p>
             <h2>Nur highlighten, was man highlighten will - mit filter</h2>
-            <p>Array.from(document.querySelectorAll('#chat_members'))</p>
+            <p>let foundNodes = (Array.from(document.querySelectorAll('#chat_members'))).filter((liNode => {liNode.innerHTML.includes(searchFor)})) <br> let highligtSelectedNodes = foundNodes.forEach(li => li.classList.add('highlighted'))</p>
+            <p>Methoden sind eine spezielle Art von Funktionen. sie unterscheiden sich von anderen Funktionen dadurch, das Sie zu einem Objekt gehören.</p>
         </article>
       </section>
     </main>

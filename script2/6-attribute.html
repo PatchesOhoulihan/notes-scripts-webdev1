@@ -36,7 +36,32 @@
           <img srcset="" src="" alt="">
         </header>
         <article>
-            <h2></h2>
+            <h2>Attribute</h2>
+            <p>Alle HTML-Element-Objekte bieten die Möglichkeit mit den Methoden <code>getAttribute</code> und <code>setAttribute<code> zum Auslesen und verändern von Attributewerten an.</p>
+            <p>Example Attribute auslesen: <code>document.querySelector('tag').getAttribute('value');</code></p>
+            <p>Example Attribute setzen: <code>document.querySelector('tag').setAttribute('value',8);</code></p>
+            <p>Example alle Attribute eines Elements zurückgeben: <code>document.querySelector('tag').attributes</code> <br> Als Rückgabewert erhält man eine <strong>NamedNodeMap</strong>, das alle Attribute und deren Werte enthält.</p>
+            <h3>IDL-Attribute vs Content-Attribute</h3>
+            <p>Die Methoden <code>.getAttribute()</code> und <code>.setAttribute()</code> heissen <strong>Content-Attribute</strong>, ihr Rückgabewert ist immer String.</p>
+            <p>In vielen Fällen stellt das DOM die Attribute aber auch direkt als JS-Properties auf dem HTML-Element-Objekt zur Verfügung (<strong>IDL-Attribute</strong>) <br> <code>document.querySelector('tag').value</code> <br><code>document.querySelector('tag').value=1; <br> IDL-Attribute können unterschiedliche Rückgabewerte besitzten.</p>
+            <p>Meisten gibt es keinen Unterschied, die IDL-Attribute greifen auf die zugrundeliegenden Content-Attribute zu.</p>
+            <h3>Achtung! - boolische Attribute</h3>
+            <p>Bei booleschen Attribute müssen Sei etwas aufpassen. Betrachten Sie Beispielsweise die Eigenschaft <strong>disabled</strong>. Diese Eigenschaft gibt es unterandern auf den Elementen <code>button, input, option, select und textarea</code></p>
+            <p>Das IDL_Attribute hat den Type: boolean <br> typeof document.querySelector('button').disabled ) => boolean. <br> Sie können es mittels ..disabled = true oder ..disabled = false; umschalten</p>
+            <p>Arbeitet man jedoch mit den Content-Methoden: ist die Korekteschreibweise ..setattribute('disabled',"disabled")(deaktivieren) und ..setAttribute('disabled', '') zum aktivieren.</p>
+            <p>Attribute entfernen: <code>document.querySelector('input').removeAttribute('disabled')</code></p>
+            <h3>Auf die Fragestellung kommt es an- mit dem Value Attributen.</h3>
+            <p>&lt;input type="text" value="hallo" /&gt;</p>
+            <p>Solange sie den Text nicht ändern, sind der IDL und Content-Attribute identisch. <br>$('input').value => hello (IDL-Attribute) <br>$('input').getAttribute('value') => hello (Content-Attribute)</p>
+            <p>Trägt man jedoch einen anderen Wert in das Input feld ein: <br>$('input').value => world (IDL-Attribute) <br>$('input').getAttribute('value') => hello (Content-Attribute) <br> Das IDL-Attribute reflektiert die Änderung das content-attribute nicht.</p>
+            <p>NOTE: Verwenden Sie immer die IDL-Attribute, ausser Sie benötigen gezielt einen Originalwert(hardcoded bevor Benutzer änderungen durchgeführt hat.)</p>
+            <p>Der Zugriff über die Eigenschaften auf die IDL-Attribute ist aus meherern Gründen vorzuziehen:</p>
+            <ul>
+                <li>Sie erhalten einen genaueren Datentype und nicht nur String</li>
+                <li>Sie erhalten aktuelle, möglicherweise geänderte Werte.</li>
+                <li>Das Verhalten ist konsistenter. Sie müssen weniger Sonderfälle beachten.</li>
+            </ul>
+
         </article>
       </section>
     </main>

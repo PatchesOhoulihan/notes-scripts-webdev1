@@ -36,7 +36,175 @@
           <img srcset="" src="" alt="">
         </header>
         <article>
-            <h2></h2>
+            <h2>Events im Browser</h2>
+            <p>Für den Browser ist schon jede kleine Einflussnahme durch den Anwender ein Event</p>
+            <ul>
+                <li>das Anklinken eines Buttons</li>
+                <li>das Überfahren eines Bildes mit des Maus</li>
+                <li>das Loslassen einer Taste</li>
+                <li>das Verlassen eines Eingabefeldes</li>
+                <li>Fingergesten auf Touchbildschirmen, wie z.B Zoom</li>
+            </ul>
+            <p>Es gibt auch Events, die nicht direkt vom Anwender ausgelöst werden, zB durch Netzwerkanfragen oder bei abgeschlossenen Ladevorgängen von Dateien</p> 
+            <h3>Ein Event erstellen</h3>
+            <p>hierfür benötigt man die Methode <code>addEventlistener</code> Nahezu jedes HTML-Element verfügt über diese Methode.</p>
+            <p>Example: <code>document.querySelector('#member').addEventListener('keyup', <em>function(event){}</em>)</code></p>
+            <p>Die Function besitzt 2 Argumente:</p>
+            <ul>
+                <li>Das erste Argument ist der <strong>Eventtyp</strong></li>
+                <li>Das zweite Argument ist eine Function die der Browser ausführt wenn das Event auftritt.</li>
+            </ul>
+            <h3>Guard clauses: Wächter für ihre Functionen</h3>
+            <p><code>if(partOfmemberName === "")</code> Zeilen wie diese, die vor der Ausführung einer Function prüfen, ob die eingehenden Argumente einer Function überhaupt Sinn machen heissen <strong>Guards-clauses</strong> oder einfach <strong>Guards</strong>. Sie schützen functionen vor ungültigen Eingabewerten.</p>
+            <h3>Schauen Sie hinter die Fassade - mit dem Event-Object</h3>
+            <p>Wenn mit <code>.addEventListener('event' function(event){})</code> sich auf ein bestimmtes Element registriert. Wird das event-object als Argument and an die Callback function übergeben.</p>
+            <p>Example: <code>document.querySelector('input').addEventListener('keyup' function(event){console.log(event);})</code>, so kann man sich den Inhalt des Eventobject ausgeben lassen</p>
+            <table>
+                <thead>
+                    <td>Eigenschaft</td>
+                    <td>Inhalt</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>type</code></td>
+                        <td>keyup</td>
+                    </tr>
+                    <tr>
+                        <td><code>key</code></td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td><code>65</code></td>
+                        <td>65</td>
+                    </tr>
+                    <tr>
+                        <td><code>timestamp</code></td>
+                        <td>Timestamp, wann ein Event sich ereignet hat.</td>
+                    </tr>
+                    <tr>
+                        <td><code>target</code></td>
+                        <td>Element, das das Event ausgelöst hat.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Es gibt noch viel mehr Eigenschaften, doch schon diese wenigen verdeutlichen, dass Sie Eventobjekten alle Informationen Finden, die beim Auftreten des Events eine Rolle spielen</p>
+            <h3>preventDefault oder: Wer mag schon immer nur "standard"</h3>
+            <p>um das standardverhalten eines Elements zu verhindern kann aufdem Eventobject die <code>preventDefault()</code> Methode aufgerufen werden. Example: <br><code>document.querySelector('input').addEventListener('keyup' function(event){event.preventDefault();})</p>
+
+            <table>
+                <thead>
+                    <td>Eventname</td>
+                    <td>wird ausgelöst wenn...</td>
+                    <td>verfügbar auf</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>blur</code></td>
+                        <td>Ein Element den Fokus verliert</td>
+                        <td>input, textarea</td>
+                    </tr>
+                    <tr>
+                        <td><code>change</code></td>
+                        <td>ein Anwender eine Änderung am Element bewirkt - z.B. durch wählen einer Option innerhalb einer select-box oder durch bestätigen einer Checkbox</td>
+                        <td>Input, select, textarea</td>
+                    </tr>
+                    <tr>
+                        <td><code>click</code></td>
+                        <td>ein Anwender auf ein Element klickt(und wieder losläst) Das Event repräsentiert den kompletten Vorgang: Drücken und loslassen. Wenn man nur auf das runterdrücken reagieren möchte verwendet man mousedown, für nur loslassen mouseup.</td>
+                        <td>button, img ,body, p, div</td>
+                    </tr>
+                    <tr>
+                        <td><code>dbclick</code></td>
+                        <td>ein Anwender auf einem Element einen Doppelklick ausführt</td>
+                        <td>button img, body</td>
+                    </tr>
+                    <tr>
+                        <td><code>focus</code></td>
+                        <td>ein Element dan Fokus erhält</td>
+                        <td>input, textarea</td>
+                    </tr>
+                    <tr>
+                        <td><code>hashchange</code></td>
+                        <td>sich der Fragmentbezeichner der URL ändert(der Fragmentbezeichner ist der Teil, der nach dem #-Symbol folgt inkl. dem Symbol)</td>
+                        <td>window</td>
+                    </tr>
+                    <tr>
+                        <td><code>input</code></td>
+                        <td>der Inhalt eines input - oder textarea-Elements geändert wird.</td>
+                        <td>input, textarea</td>
+                    </tr>
+                    <tr>
+                        <td><code>keydown</code></td>
+                        <td>der Anwender eine Taste drückt</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><code>keypress</code></td>
+                        <td>der Anwender eine Taste gedrückt hält.</td>
+                        <td>input, textarea</td>
+                    </tr>
+                    <tr>
+                        <td><code>keyup</code></td>
+                        <td>der Anwender eine Taste loslässt.</td>
+                        <td>input, textarea</td>
+                    </tr>
+                    <tr>
+                        <td><code>mouseenter</code></td>
+                        <td>der Anwender den Mauszeiger über ein Element bewegt.genauer die Fläche des Elements mit dem Mauszeiger betritt.</td>
+                        <td>button, img, body, p, div</td>
+                    </tr>
+                    <tr>
+                        <td><code>mouseleave</code></td>
+                        <td>der Anwender den Mauszeiger aus einem Element herausbewegt</td>
+                        <td>button img, body, p, div</td>
+                    </tr>
+                    <tr>
+                        <td><code>mousemove</code></td>
+                        <td>sich der Mauszeiger über dem Element bewegt.</td>
+                        <td>button, img, body, p, div</td>
+                    </tr>
+                    <tr>
+                        <td><code>reset</code></td>
+                        <td>ein Formular zurückgesetzt wird.</td>
+                        <td>form</td>
+                    </tr>
+                    <tr>
+                        <td><code>resize</code></td>
+                        <td>der Anwender die Größe des Browserfensters verändert.</td>
+                        <td>window</td>
+                    </tr>
+                    <tr>
+                        <td><code>scroll</code></td>
+                        <td>innerhalb eines Elements(oder Browserfensters gescrollt wird.)</td>
+                        <td>window, div</td>
+                    </tr>
+                    <tr>
+                        <td><code>select</code></td>
+                        <td>der Anwender einen Text makiert.</td>
+                        <td>input textarea, p</td>
+                    </tr>
+                    <tr>
+                        <td><code>submit</code></td>
+                        <td>ein Formular abgeschickt wird</td>
+                        <td>form</td>
+                    </tr>
+                    <tr>
+                        <td><code>transistionend</code></td>
+                        <td>eine CSS-Transition beendet ist</td>
+                        <td>img, div, p</td>
+                    </tr>
+                    <tr>
+                        <td><code>visibilitychange</code></td>
+                        <td>Inhalt eines Elements sichtbar oder unsichtbar wird.</td>
+                        <td>img, div, p</td>
+                    </tr>
+                    <tr>
+                        <td><code>wheel</code></td>
+                        <td>wenn ein Benutzer am Mausrad dreht.</td>
+                        <td>window, div</td>
+                    </tr>
+                </tbody>
+            </table>
         </article>
       </section>
     </main>

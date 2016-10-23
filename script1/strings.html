@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+	<div id="site-wrapper">
+		<main>
+			<section>
+				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
+				<article>
+					<h2>Setzen Sie ein Zeichen mit Strings!</h2>
+					<p>Zerlegen Sie den Text in statische und variable Textfragmente. Dafür benöti- gen Sie den sogenannten Konkatenations-
+						oder Verkettungsoperator. JavaScript drückt ihn durch das Plus-Zeichen ( + ) aus. Mit diesem Operator lassen sich —
+						wie der Name schon sagt — Strings verketten.</p>
+					<h3>Template Strings mehr als nur ein Platzhalter</h3>
+					<p>Als Alternative zum Verkettungsoperator erlaubt ES6, Variablen direkt innerhalb von Strings anzugeben. Die sogenannte
+						Template String Substitution erspart das Hantieren mit Anfüh- rungszeichen und dem Verkettungsoperator + . Template
+						Strings sind spezielle Strings, die ähnlich wie bei einem Serienbrief als Vorlage (engl. Template) dienen.</p>
+					<p>Um die Variable im Template-String zu kennzeichnen, benötigen Sie das Dollarzeichen $ und geschweifte Klammern {} .</p>
+					<p><code>console.log(`Hi ${username}. Welcome to NerdWorld!`);</code></p>
+					<p>Bitte beachten Sie, dass der String in Zeile 5 nicht in einfachen Anführungszeichen, sondern in sogenannten Backticks
+						steht. Anhand der Backticks kann JS erkennen, dass es sich nicht um einen klassischen String, sondern um einen Template-String
+						handelt.
+					</p>
+					<p>Template Strings nicht nur Variablen ersetzen, sondern beliebige Ausdrü- cke.
+					</p>
+					<p>console.log(`In 10 years from now you will be ${currentAge + 10} years old`);</p>
+					<h3>Zeit des Umbruchs</h3>
+					<p>Hierfür sollte ein Steuerzeichen zu verwendet werden. Neben den sichtbaren Zeichen wie Buch- staben, Zahlen, Satz- und
+						Sonderzeichen gibt es auch Steuerzeichen. Steuerzeichen waren vor allem früher für Textdrucker im Gebrauch: So gab
+						es beispielsweise Zeichen für Seiten- vorschub, Tabulator oder Tonsignal (Bell). Diese Zeichen sind im ASCII-Standard
+						beschrieben.
+					</p>
+					<p>ASCII ist ein Standard der American Standards Association (ASA) und dient der Textcodierung (auch als Teil von UTF-8).
+						Die meisten dieser Steuerzeichen haben eher historische Bedeutung, nur wenige davon wer- den heute noch gebraucht.</p>
+					<p>Ein Steuerzeichen müssen Sie maskieren, damit es nicht mit einem »normalen« Buchstaben verwechselt wird. Maskieren bedeutet,
+						dass Sie einen Backslash ( \ ) vor das Zeichen setzen. Der Zeilenumbruch schreibt sich als \n . Somit erreichen Sie
+						die gewünschte Ausgabe durch diese Anweisung:</p>
+					<p><code>prompt(`Hey ${username}\nNice to see you again. How do you do today?`);</code></p>
+					<h3>Backslash oder »Behind the Mask«</h3>
+					<p>Der Fall ist selten, aber es besteht durchaus die Möglichkeit, dass in Ihrem Text die Kombina- tion Backslash und n
+						tatsächlich als Teil des Textes enthalten ist.</p>
+                    <p><code>directory:\nC:\important_folder\next_important_folder");</code></p>
+					<p>Sie müssen den Backslash selbst maskieren, wenn Sie ihn als Teil des Textes verwenden möchten. Aber keine Angst, Sie
+						müssen sich nicht noch mehr merken: Auch der Backslash selbst wird mit einem Backslash maskiert.</p>
+                    <p><code>directory:\nC:\\important_folder\\next_important_folder");</code></p>  
+				</article>
+			</section>
+		</main>
+	</div>
+</body>

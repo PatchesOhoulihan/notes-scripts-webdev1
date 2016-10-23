@@ -36,7 +36,20 @@
           <img srcset="" src="" alt="">
         </header>
         <article>
-            <h2></h2>
+            <h2>Rauszögern, ohne abzuwarten: Defer & Async</h2>
+            <p><code>defer</code> verzögert die Ausführung des Scripts. Erst wenn die Seite ihr DOM komplett aufgebaut hat, führt sie das Script aus. Wird es weg gelassen wird es sofort ausgeführt ohne das der DOM des Body komplett geladen wurde</p>
+            <p><code>async</code> sorgt dafür, dass der Browser die JS-Datei paralell zu anderen Dateien lädt und das ausführen des HTML-Codes an dieser Stelle nicht warten muss. Man sollte es als eine Art Performance optimierung betrachten.</p>
+            <h3>Also früher, da musste wir noch...</h3>
+            <p>Bevor Browser das <code>async</code> Attribute unterstützten, vor IE 10, firefox und Chrome unterstützen es schon sehr lange. Gab es verschiedene Möglichkeiten ein defer zu simulieren. <br>1. Das Script am Ende des Bodys zu deklarieren (vor den schließenden Klammern). <br> Oder das script-tag dynamisch zu generieren. </p>
+            <h3>Strikt und abgeschottet IIFE & strict</h3>
+            <p><code>'use strict'</code> lässt Javascript eine strengere Syntaxprüfung durchführen <br>IIFE(Immediatly Invoked Function Expression) ist ein Functionsausdruck, der sofort ausgeführt wird IIFE <br>Bringt 2 Vorteile mit:</p>
+            <ul>
+                <li>Die Function schafft einen eigenen Scope. Variable die in ihn angelegt werden sind nicht global.</li>
+                <li>Ist ein 'use strict' in einer IIFE so gilt dieses nur innerhalb des IIFE und andere Teile/Bibliotheken werden nicht der stärkeren Syntaxprüfung unterzogen.</li>
+            </ul>
+            <p>Refactoring bedeutet, das verbessern von Code OHNE dabei sein Verhalten zu verändern.</p>
+            <p>Ein wichtiges Prinzip beim Programmieren ist das <strong>Single Responsibility Principle</strong>, es bedeutet, dass jede funktion immer nur eine Sache tuen sollte.</p>
+            <p><strong>Newsletter-Metapher</strong>Code Sortierung, High-Levelfunktionen nach oben, detailierte Low-Level-Hilfsfuncttionen nach unten.</p>
         </article>
       </section>
     </main>
