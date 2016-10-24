@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+	<div id="site-wrapper">
+		<main>
+			<section>
+				<h1>Math, denn das Ganze ist mehr als die Summe seiner Teile</h1>
+				<article>
+					<h2>Das Math Objekt</h2>
+					<p>Sie können damit Werte runden, Zufallszahlen bestimmen oder Winkelberechnungen durchführen. Damit all diese Funktionen
+						nicht sinnlos in JS verstreut sind, gibt es das Math -Objekt.</p>
+					<table>
+						<thead>
+							<td>Function oder Konstante</td>
+							<td>Zweck</td>
+							<td>Beispiel</td>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>sqrt</code></td>
+								<td>Quardratwurzel</td>
+								<td>Math.sqrt(9) ergibt 3</td>
+							</tr>
+							<tr>
+								<td><code>pow</code></td>
+								<td>Potenzieren</td>
+								<td>Math.pow(2, 5) ergibt 32</td>
+							</tr>
+							<tr>
+								<td><code>cos</code></td>
+								<td>Kosinus</td>
+								<td>Math.cos(0) ergibt 1</td>
+							</tr>
+							<tr>
+								<td><code>PI</code></td>
+								<td>PI</td>
+								<td>Math.PI ergibt 3.141592653589793</td>
+							</tr>
+						</tbody>
+					</table>
+					<h3>Eine runde Sache: floor, round & ceil</h3>
+					<p>Auch die häufig genutzten Rundungsfunktionen verbergen sich hinter dem Math-Objekt. Es gibt drei Rundungsfunktionen:
+						round , ceil und floor . Die Funktion round ist ein Klas- siker. Sie verhält sich so, wie Sie es aus dem Geschäftsleben
+						kennen: Ab einem Wert von 0.5 nach dem Dezimalpunkt wird aufgerundet. Die Funktion floor rundet dagegen immer ab und
+						ceil immer auf. Beispiel: <br> ➤ Math.round(3.1) ergibt 3 <br> ➤ Math.round(3.5) ergibt 4 <br>➤ Math.floor(3.7) ergibt
+						3 <br>➤ Math.ceil(3.1) ergibt 4</p>
+					<h3>Frisch gefixt mit toFixed</h3>
+					<p>Manchmal möchten Sie Zahlen auf eine bestimmte Anzahl von Nachkommastellen runden. Beispielsweise ist es üblich, Geldbeträge
+						auf zwei Stellen zu runden. Diese Möglichkeit finden Sie allerdings nicht — wie Sie vielleicht vermuten würden — bei
+						Math . Stattdessen rufen Sie die Funktion toFixed direkt auf einem Zahlenwert auf. <br> <code>3.4567.toFixed(3); // => 3.457</code></p>
+                    p
+				</article>
+			</section>
+		</main>
+	</div>
+</body>

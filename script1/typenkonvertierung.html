@@ -14,6 +14,35 @@
 				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
 				<article>
 					<h2>Setzen Sie ein Zeichen mit Strings!</h2>
+					<h3>Implizite Typkonvertierung</h3>
+					<p>Was aber passiert, wenn Sie statt Zahlen Strings verbinden? Diese Fragestellung können Sie anhand der Operatoren * ,
+						/ und - erörtern. Das + -Zeichen verdient besondere Aufmerksamkeit. Deswegen kommen wir gleich nochmal darauf zurück.
+						Welchen Rückgabewert haben folgende Ausdrücke? Probieren Sie es aus! <br>"5" * "4" ergibt ? <br>"5" * 4 ergibt ? <br>5
+						* "4" ergibt ?
+					</p>
+					<p>Das Ergebnis ist in jedem Fall 20 mit dem Datentyp number. Sollte ein String als Operand vorlie- gen oder sogar beide
+						Operanden vom Typ string sein, so führt JS eine sogenannte impli- zite Typkonvertierung durch. Unabhängig davon, welchen
+						Datentyp die beiden Operanden haben, versucht der Interpreter, den Datentyp zu number umzuwandeln. Da diese Art der
+						Typkonvertierung automatisch, d. h. ohne das Zutun des Programmierers geschieht, wird sie als implizit bezeichnet.
+						Der Fachausdruck für implizite Typkonvertierung ist coercion.</p>
+					<p>Auch die Operatoren / und - verwenden coercion. <br>"5" - "4" ergibt 1 (Typ: number) <br>"5" - 4 ergibt 1 (Typ: number)
+						<br>5 - "4" ergibt 1 (Typ: number) <br>"5" / "4" ergibt 1.25 (Typ: number) <br>"5" / 4 ergibt 1.25 (Typ: number)
+						<br> 5 / "4" ergibt 1.25 (Typ: number)</p>
+					<h3>Explizite Typkonvertierung</h3>
+					<p>Explizit bedeutet, dass sich der Interpreter nicht automatisch um die Umwandlung kümmert. Stattdessen ist es Ihre Aufgabe
+						als Programmierer, diese anzugeben. <br>bsp: Number("1") ergibt 1 (Typ: number )</p>
+					<p>NOTE: die Funktion prompt immer einen String zurückgibt, unabhängig von der Eingabe.</p>
+					<h3>Definition durch Ausschluss? NaN!</h3>
+					<p>NaN steht für Not a Number. Dieser Wert repräsentiert eine fehlgeschlagene numerische Ope- ration. Das kann sowohl bei
+						einer expliziten als auch bei einer impliziten Typkonvertierung passieren. <br>Beispiele: <br>Number("NerdWorld") ergibt
+						NaN <br> Number("NerdWorld 2") ergibt NaN <br> "Drei" * 3 ergibt NaN
+					</p>
+					<p>Es klingt im ersten Moment vielleicht etwas paradox zu sagen: »Nicht eine Number ist eine Number «. Es macht aber tatsächlich
+						Sinn. Überall dort, wo Werte vom Datentyp number zugelassen sind, ist auch NaN erlaubt. Damit kann auch im Fehlerfall
+						ein Programm weiterhin lauffähig bleiben. Der Fehler wirkt sich im Ergebnis aus, das ist aber meist immer noch besser
+						als ein vollständiger Programmabbruch. Ein NaN, das in einer numerischen Berechnung als Operand agiert, führt auch
+						wieder zu einem Rückgabewert von NaN.</p>
+					
 				</article>
 			</section>
 		</main>
