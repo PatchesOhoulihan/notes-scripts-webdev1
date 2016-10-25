@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+	<div id="site-wrapper">
+		<main>
+			<section>
+				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
+				<article>
+					<h3>Besonderheiten bei nur einer Anweisung</h3>
+					<p>Wenn Sie übrigens im if - oder im else -Zweig nur eine einzige Anweisung haben, können Sie auf die geschweiften Klammern
+						verzichten. Wir empfehlen aber, die Klammern nur dann wegzulassen, wenn es sich um eine kurze Anweisung handelt, die
+						Sie mit dem if in die gleiche Zeile schreiben können.</p>
+					<p><code>if (answer === SOLUTION) console.log("42 is correct.");</code></p>
+					<h3>Der tertiäre Operator</h3>
+					<pre><code>
+                        if (productCategory === "books") {
+                            vatRate = 1.07;
+                        } else {
+                            vatRate = 1.19;
+                        }
+                        </code></pre>
+					<p>Dass Sie in beiden Zweigen einer if-Anweisung derselben Variable einen Wert zuweisen, kommt recht häufig vor. Wenn die
+						if-Anweisung, so wie hier, keinen weiteren Zweck hat, kann der sogenannte tertiäre Operator helfen, die Lesbarkeit
+						des Codes zu verbessern.</p>
+                    <p>Der tertiäre Operator hat drei Operanden (deswegen tertiär) und trennt diese mit den Zeichen ? und : . Sie können den obigen Code auch so schreiben</p>
+                    <p><code>vatRate = productCategory === "books" ? 1.07 : 1.19;</code></p>
+				</article>
+			</section>
+		</main>
+	</div>
+</body>
