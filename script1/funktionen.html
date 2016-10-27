@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+	<div id="site-wrapper">
+		<main>
+			<section>
+				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
+				<article>
+					<h2>Funktionen</h2>
+					<p>Eine sogenannte Funktionsdefinition — hier in Form eines Funktionsausdrucks (function expression) — besteht aus: <br>➤
+						Parametern in runden Klammern () ,<br> ➤ einem Pfeil => und <br>➤ einem Rumpf in geschweiften Klammern {} .</p>
+					<p><code>()=>{...}</code></p>
+					<p>Da die Definition der Form () => {} ein Ausdruck ist, der eine Funktion zurückgibt (den Sie dann anschließend mit der
+						Variable referenzieren), wird diese Form der Funktionsdefinition auch als function expression (dt.: Funktionsausdruck)
+						bezeichnet.
+					</p>
+					<h3>Argument vs. Parameter</h3>
+					<p>Bei dem Aufruf showNewsletterFor("Heribert") für die Definition: <br>let showNewsletterFor = (username) => ... <br>gilt
+						übrigens username als Parameter und "Heribert" (d. h. der übergebene Wert) als Argu- ment. Der Unterschied zwischen
+						Argument und Parameter ist allerdings nicht sonderlich bedeutsam. Im Alltag wird oft von Parametern geredet, auch wenn
+						eigentlich das Argument gemeint ist — und umgekehrt.</p>
+					<h3>Function definition shorthand</h3>
+					<p>Falls Ihre Funktion wie im letzten Beispiel exakt einen Parameter benötigt, können Sie die Funktion sogar noch kürzer
+						schreiben: Sie dürfen die Klammern um den Parameter weglassen:</p>
+					<pre>
+						<code>let showNewsletterFor = username => {
+                                    ...
+                                };</code>
+					</pre>
+					<p>Das gilt nicht für Funktionen mit zwei oder mehr Parametern, und auch nicht für Funktionen ganz ohne Parameter:</p>
+					<pre>
+						<code>
+                            let myFunction = => {...} //wrong
+                            let myFunciton = () => {...} //ok
+                            let myFunction = a, b => {...} //wrong
+                            let myFunction = (a, b) => {...} //ok
+                        </code>
+					</pre>
+					<h3>Signaturen: Gut dokumentiert ist halb verstanden</h3>
+					<p>Die Zeile <br>str.substr(start[, length]) <br>beschreibt dabei die sogenannte Signatur der Funktion. Das ist die übliche Vorgehensweise
+						bei der Code-Dokumentation. Eine Signatur besteht dabei aus dem Namen der Funktion und ihren Parametern. Die eckigen
+						Klammern [] bei length bedeuten, dass length ein optio- naler Parameter ist, den Sie auch weglassen dürfen. Wichtig
+						ist, dass Sie eine solche Dokumen- tation lesen können.</p>
+				</article>
+			</section>
+		</main>
+	</div>
+</body>
