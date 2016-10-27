@@ -37,7 +37,84 @@
                <h3>replace()</h3>
                <p>Mit der Funktion <code>replace()</code> ist es möglich innerhalb eines Strings Ersetzungen vorzunehmen. let story = "Die alte Knackwurst weiss nicht wie ihr geschieht. Das ist der Witz mit der alten Knackwurst" <br>let newStory = story.replace('Knackwurst', 'Salami');</p>
                <p>NOTE: Dies ersetzt jedoch nur den ersten teilstring mit dem neuen Wert. Wenn ALLE erstezt werden sollen, dann muss <strong>Regular Expression</strong> als ersten Parameter verwendet werden. <br>/suchbegriff/g <br> Die Schrägstriche / signalisieren die Regulären Ausdrücke, das g steht für global und sorgt dafür das die Textersetzung für den ganzen Text durchgeführt wird <br><code>story.replace(/knackwurst/g, "Salami")</code> (NOTE: reguläre Ausdrücke werden nicht in Anführungszeichen gesetzt.)</p>
-               
+               <table>
+                   <thead>
+                       <td>Funktion</td>
+                       <td>Zweck</td>
+                       <td>
+                           Beispielaufruf für <code>let s = "abcde"</code>
+                       </td>
+                       <td>Rückgabewert</td>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td>charAt</td>
+                           <td>ermittelt das Zeichen an der angegebenen Stelle</td>
+                           <td><code>s.charAt(1)</code></td>
+                           <td>b</td>
+                       </tr>
+                       <tr>
+                           <td>includes</td>
+                           <td>Prüft, ob der String den angegebenen Teilstring enthält</td>
+                           <td><code>s.includes('bc')</code></td>
+                           <td>true</td>
+                       </tr>
+                       <tr>
+                           <td>startsWith</td>
+                           <td>Prüft, ob der String mit angegebenen Teilstring beginnt.</td>
+                           <td><code>s.startsWith('ab')</code></td>
+                           <td>true</td>
+                       </tr>
+                       <tr>
+                           <td>endsWith</td>
+                           <td>Prüft, ob der String mit dem angegebenen Teilstring endet</td>
+                           <td><code>.endsWith('de')</code></td>
+                           <td>true</td>
+                       </tr>
+                       <tr>
+                           <td>indexOf</td>
+                           <td>Ermittelt die Position des angegebenen Teilstrings innerhalb des Strings</td>
+                           <td><code>s.indexOf('cd')</code></td>
+                           <td>2</td>
+                       </tr>
+                       <tr>
+                           <td>lastIndexOf</td>
+                           <td>Ermittelt die Position des angegebenen Teilstrings innerhalb des Strings(Suche beginnt von hinten)</td>
+                           <td><code>s.lastIndexOf("de")</code></td>
+                           <td>3</td>
+                       </tr>
+                       <tr>
+                           <td>repeat</td>
+                           <td>Wiederholt den String so oft wie angegeben</td>
+                           <td><code>s.repeat(2)</code></td>
+                           <td>abcdabcdabcd</td>
+                       </tr>
+                       <tr>
+                           <td>substr</td>
+                           <td>Extrahiert einen Teilstring an der angegebenen Postion</td>
+                           <td><code>s.substr(1,3)</code></td>
+                           <td>bcd</td>
+                       </tr>
+                       <tr>
+                           <td>toLowerCase</td>
+                           <td>Gibt den String in Kleinschreibung zurück.</td>
+                           <td><code>"ABcdE".toLowerCase()</code></td>
+                           <td>abcde</td>
+                       </tr>
+                       <tr>
+                           <td>toUpperCase</td>
+                           <td>Gibt den String in Großschreibung zurück</td>
+                           <td><code>"AbCdE".toUpperCase()</code></td>
+                           <td>ABCDE</td>
+                       </tr>
+                       <tr>
+                           <td>trim</td>
+                           <td>Entfernt Leerzeichen am Anfang und am Ende</td>
+                           <td><code>" abc ".trim()</code></td>
+                           <td>abc</td>
+                       </tr>
+                   </tbody>
+               </table>
             </article>
         </section>
     </main>
