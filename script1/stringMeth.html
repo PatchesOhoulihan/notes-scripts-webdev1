@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/master.css">
+</head>
+
+<body>
+    <div id="site-wrapper">
+        <main>
+        <section>
+            <h1>Was Sie schon immer über Javascript wissen wollten</h1>
+            <article>
+                <h2>Buntes String-Allerei</h2>
+               <h3>Suchen und Finden mit indexOf</h3>
+               <p>Mit indexOf können Sie die Position eines bestimmten Strings innerhalb eines größeren Strings herausfinden.</p>
+               <p><code>let name ="Ladislaus Jones" <br> console.log(name.indexOf(' '))</code> <br> Rückgabewert = 9 (als position des Leerzeichens)</p>
+               <h4>Mehr vom Index</h4>
+               <ul>
+                   <li>Die Zählung beginnt von der Position 0</li>
+                   <li>Wenn die Funktion <code>indexOf</code> den gewünschten Wert nicht findet, gibt sie -1 zurück.</li>
+                   <li><code>indexOf</code> gibt die Position des ERSTEN Fundes aus.</li>
+                   <li>IndexOf beginnt am Anfang des Strings mit der Suche, <strong>Die Funktion lastIndexOf findet das letzte vorkommende Element.</strong></li>
+               </ul>
+               <h3>Substring</h3>
+               <p>Die Funktion <code>substr</code> extrahiert einen Teilstring aus einem größeren String. Als Argumente werden: <br>die Position des ersten Zeichen. <br>die Anzahl von Zeichen, die Sie extrahieren möchten.</p>
+               <p><code>let name="Ladislaus Jones" <br> name.substr(2,6); = rückgabewert "dislaus"</code></p>
+               <h3>trim</h3>
+               <p><code>trim</code> entfernt Leerzeichen am Anfang und am Ende eines Strings, nicht jedoch in der mitte: <br><code>let name = ' Davy Jones ' <br>name.trim() = 'Davy Jones'</code></p>
+               <h3>charAt</h3>
+               <p>Die Funktion <code>charAt</code>. Sie erwartet als Parameter die Position des zu extrahierenden Zeichens. <br><code>let Name</code></p>
+               <h3>toLowerCase und toUpperCase</h3>
+               <p>Wandelt DEN KOMPLETTEN STRING entweder in groß oder kleinbuchstaben um.</p>
+               <p>"string".toUpperCase(); = "STRING" <br>"STRING".toLowerCase() = "string"</p>
+               <h3>replace()</h3>
+               <p>Mit der Funktion <code>replace()</code> ist es möglich innerhalb eines Strings Ersetzungen vorzunehmen. let story = "Die alte Knackwurst weiss nicht wie ihr geschieht. Das ist der Witz mit der alten Knackwurst" <br>let newStory = story.replace('Knackwurst', 'Salami');</p>
+               <p>NOTE: Dies ersetzt jedoch nur den ersten teilstring mit dem neuen Wert. Wenn ALLE erstezt werden sollen, dann muss <strong>Regular Expression</strong> als ersten Parameter verwendet werden. <br>/suchbegriff/g <br> Die Schrägstriche / signalisieren die Regulären Ausdrücke, das g steht für global und sorgt dafür das die Textersetzung für den ganzen Text durchgeführt wird <br><code>story.replace(/knackwurst/g, "Salami")</code> (NOTE: reguläre Ausdrücke werden nicht in Anführungszeichen gesetzt.)</p>
+               
+            </article>
+        </section>
+    </main>
+    </div>
+</body>
+
+</html>
