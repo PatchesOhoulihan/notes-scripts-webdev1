@@ -7,31 +7,32 @@
     <meta name="description" content="Workshop HTML...">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <link href="css/normalize.css" rel="stylesheet" media="all">
-    <link href="css/master.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="../css/master.css" rel="stylesheet" media="all">
     <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 
 </head>
 <body>
-    <div id="site-wrapper">
+    <div class="container">
         <header role="banner" class="pageheader">
-        <h1>Jetzt geht's in CSS</h1>
     </header>
-    <nav role="navigation" id="nav" class="navmain">
-      <h2>Navigation</h2>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="2-manipulator.html">Jetzt werden Sie Manipulator</a></li>
-        <li><a href="#">Die erste Anwendung</a></li>
-        <li><a href="4-html.html">Auftritt Superheld Angular</a></li>   
-        <li><a href="5-events.html">Server Communication</a></li>
-        <li><a href="6-attribute.html">http Protokoll</a></li>      
-      </ul>
+    <nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="2-manipulator.html">Manipulator</a></li>
+            <li class="active"><a href="#">CSS</a></li>
+            <li><a href="4-html.html">HTML</a></li>   
+            <li><a href="5-events.html">Events</a></li>
+            <li><a href="6-attribute.html">Artribute</a></li>      
+        </ul>
+      </div>
     </nav>
 
     <main role="main" aria-labeledby="content">
       <section>
-        <header>
+        <header class="jumbotron">
+          <h1>Jetzt geht's in CSS</h1>
           <p></p>
           <img srcset="" src="" alt="">
         </header>

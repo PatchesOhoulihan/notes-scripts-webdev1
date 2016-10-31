@@ -3,39 +3,42 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Getting Started with Single Page Application</title>
+	<title>Single Page Application - Auftritt Angular</title>
 
 	<meta name="description" content="Workshop HTML...">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 	<link href="css/normalize.css" rel="stylesheet" media="all">
-	<link href="css/master.css" rel="stylesheet" media="all">
+	<link href="../css/master.css" rel="stylesheet" media="all">
 	<!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 
 </head>
 
 <body>
-	<div id="site-wrapper">
+	<div id="container">
 		<header role="banner" class="pageheader">
-			<h1>Getting Started</h1>
+			
 		</header>
-		<nav role="navigation" id="nav" class="navmain">
-			<h2>Navigation</h2>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="mvc.html">Model View Controller</a></li>
-				<li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
-				<li><a href="#">Auftritt Superheld Angular</a></li>
-				<li><a href="Javascript-server.html">Server Communication</a></li>
-				<li><a href="http.html">http Protokoll</a></li>
-				<li><a href="websockets.html">Websockets</a></li>
-			</ul>
-		</nav>
-
-		<main role="main" aria-labeledby="content">
+		<nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mvc.html">Model View Controller</a></li>
+                    <li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
+                    <li class="active"><a href="#">Auftritt Superheld Angular</a></li>
+                    <li><a href="Javascript-server.html">Server Communication</a></li>
+                    <li><a href="http.html">http Protokoll</a></li>
+                    <li><a href="websockets.html">Websockets</a></li>
+                </ul>
+            </div>
+        </nav>
+		<main role="main" aria-labeledby="content" class="container">
 			<section>
-				<header>
-					<p>➤ wie der Template-Mechanismus von AngularJS funktioniert. ➤ was Datenbindung ist und wie sie von AngularJS unterstützt
+				<header class="jumbotron">
+					<h1>Auftritt Angular</h1>
+					<p>➤ wie der Template-Mechanismus von AngularJS funktioniert. <br>➤ was Datenbindung ist und wie sie von AngularJS unterstützt
 						wird. ➤ wie AngularJS bei der Form-Validierung helfen kann.</p>
 					<img srcset="" src="" alt="">
 				</header>
@@ -77,14 +80,14 @@
                             &lt;/html&gt;
                         </code>
 					</pre>
-					<p>In Zeile 16 wird ein neues AngularJS-Modul namens »Hello« registriert. Das zweite Argu- ment muss ein leeres Array sein
-						(Details dazu finden Sie in der API-Dokumentation 3 ). Die- ser Modulname entspricht dem Wert des ng-app -Attributes
+					<p>In Zeile 16 wird ein neues AngularJS-Modul namens »Hello« registriert. Das zweite Argument muss ein leeres Array sein
+						(Details dazu finden Sie in der API-Dokumentation 3 ). Dieser Modulname entspricht dem Wert des ng-app Attributes
 						im Template-Block.</p>
 					<p>In den Zeilen 18-21 definieren wir eine Steuerung namens »ctrl« für unser Hello-Modul. Das spezielle Objekt $scope stellt
-						dabei die Brücke zwischen der Steuerung und der Prä- sentation dar. Wir können unser (sehr) simples Datenmodell (also
+						dabei die Brücke zwischen der Steuerung und der Präsentation dar. Wir können unser (sehr) simples Datenmodell (also
 						greeting und planets ) einfach im $scope ablegen.</p>
 					<p>Die Aufrufe von .module() und .controller() lassen sich übrigens auch verketten. Die Variable Hello würde dadurch überflüssig:</p>
-					<p>Wenn AngularJS startet, wird nach einem Element mit dem ng-app -Attribut gesucht. Dieser Teil des Dokuments wird dann
+					<p>Wenn AngularJS startet, wird nach einem Element mit dem ng-app Attribut gesucht. Dieser Teil des Dokuments wird dann
 						als Template verwendet.</p>
 					<p>AngularJS analysiert das Template und verwendet es als Vorlage, um aus den Daten im Datenmodell das für die Präsentation
 						gewünschte DOM zu erzeugen (MVC!).</p>
@@ -165,7 +168,7 @@
 					<p>Auch die Datenbindung in diese Richtung ist live: Der Inhalt des &lt;p&gt;Tags ändert sich Buchstabe für Buchstabe,
 						während der Name eingegeben wird:</p>
 					<h3>Kleine Übersicht über die Angular Directiven</h3>
-					<table>
+					<table class="table table-bordered">
 						<thead>
 							<tr>
 								<td>Direktive</td>

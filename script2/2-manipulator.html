@@ -7,31 +7,32 @@
     <meta name="description" content="Workshop HTML...">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <link href="css/normalize.css" rel="stylesheet" media="all">
-    <link href="css/master.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="../css/master.css" rel="stylesheet" media="all">
     <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 
 </head>
 <body>
-    <div id="site-wrapper">
+    <div class="container">
         <header role="banner" class="pageheader">
-        <h1>Jetzt werden Sie Manipulator</h1>
     </header>
-    <nav role="navigation" id="nav" class="navmain">
-      <h2>Navigation</h2>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">Jetzt werden Sie Manipulator</a></li>
-        <li><a href="3-css.html">Die erste Anwendung</a></li>
-        <li><a href="4-html.html">Auftritt Superheld Angular</a></li>   
-        <li><a href="5-events.html">Server Communication</a></li>
-        <li><a href="6-attribute.html">http Protokoll</a></li>      
-      </ul>
+    <nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="#">Manipulator</a></li>
+            <li><a href="3-css.html">CSS</a></li>
+            <li><a href="4-html.html">html</a></li>   
+            <li><a href="5-events.html">Events</a></li>
+            <li><a href="6-attribute.html">Artribute</a></li>      
+        </ul>
+      </div>
     </nav>
 
     <main role="main" aria-labeledby="content">
       <section>
-        <header>
+        <header class="jumbotron">
+        <h1>Jetzt werden Sie Manipulator</h1>
           <p></p>
           <img srcset="" src="" alt="">
         </header>
@@ -46,7 +47,7 @@
             </p>
             <h2>Ein Blick hinter die Kulissen</h2>
             <p>Mit der Funktion <code>document.querySelector</code> können Sie HTML-Elemente innerhalb des HTML-Dokuments auswählen. Der Parameter ist ein beliebiger CSS-Selector <br> <code>document.querySelector('h1') returns First h1-Element as JS-Object</code></p>
-            <table>
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <td>Name</td>
@@ -102,7 +103,7 @@
             </p>
             <h2>Attribute Selektoren</h2>
             <p>Mit diesen ist es möglich auf Elemente mit bestimmten Attributen und Werten zuzugreifen.</p>
-            <table>
+            <table class="table table-bordered">
                 <thead>
                     <td>Selektoren</td>
                     <td>Beispiel zu <br> <code>&lt;img src="funny_cat.png"/&gt;</code></td>
@@ -141,7 +142,7 @@
                 </tbody>
             </table>
             <h2>Combinator Selektoren</h2>
-            <table>
+            <table class="table table-bordered">
                 <thead>
                     <td>Name</td>
                     <td>Beispiel</td>
@@ -176,7 +177,7 @@
             </table>
             <h2>Pseudo Classes</h2>
             <p>Mit sogenannten pseudo classes erlauben es, Selektoren weiter zu spezialisieren.</p>
-            <table>
+            <table class="table table-bordered">
                 <thead>
                     <td>Name</td>
                     <td>Beispiel</td>

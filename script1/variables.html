@@ -4,11 +4,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+
+	<link rel="stylesheet" href="../css/master.css">
 </head>
 
 <body>
-	<div id="site-wrapper">
+	<div class="container">
+		<nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="scratchpad.html">scratchpad</a></li>
+					<li><a href="operatoren-datentypen.html">Operatoren + Datentypen</a></li>
+					<li class="active"><a href="#">Variablen</a></li>
+					<li><a href="bezeichner.html">Bezeichner</a></li>
+					<li><a href="strings.html">Strings</a></li>
+					<li><a href="typenkonvertierung.html">Typenkonvertierung</a></li>
+					<li><a href="math.html">Math</a></li>
+					<li><a href="vergleichsoperatoren.html">Relationale Operatoren</a></li>
+					<li><a href="ifelse.html">If else</a></li>
+					<li><a href="LogischeOperatoren.html">Logische Operatoren</a></li>
+					<li><a href="stringMeth.html">String Meth.</a></li>
+					<li><a href="funktionen.html">Funktionen</a></li>
+					<li><a href="funcRueck.html">Funktionen return</a></li>
+					<li><a href="arrays.html">Arrays</a></li>
+					<li><a href="scopes.html">Scopes</a></li>
+					<li><a href="rekursion.html">Rekusion</a></li>
+					<li><a href="ranges.html">Ranges</a></li>
+				</ul>
+			</div>
+		</nav>
 		<main>
 			<section>
 				<h1>4 Variablen oder die Realität in Schubladen</h1>
@@ -17,9 +44,9 @@
 					<p>let username = "Oswine";</p>
 					<h3>Schlüsselwörter</h3>
 					<p>Wie Sie nun schon wissen, handelt es sich bei username um einen Variablenbezeichner und bei der Anweisung let username;
-						um eine Variablendeklaration. <strong>Das Wort let dagegen ist ein sogenanntes Schlüsselwort</strong> (engl. keyword). Schlüsselwörter sind ein fes- ter Bestandteil der Programmiersprache.
-						Sie haben eine fest definierte Bedeutung und können nicht für andere Zwecke eingesetzt werden. Sie werden in JS übrigens
-						immer komplett kleingeschrieben.</p>
+						um eine Variablendeklaration. <strong>Das Wort let dagegen ist ein sogenanntes Schlüsselwort</strong> (engl. keyword).
+						Schlüsselwörter sind ein fes- ter Bestandteil der Programmiersprache. Sie haben eine fest definierte Bedeutung und
+						können nicht für andere Zwecke eingesetzt werden. Sie werden in JS übrigens immer komplett kleingeschrieben.</p>
 					<h3>Variablen Werte zuweisen</h3>
 					<p>Um einen Inhalt in die Variable »hineinzupacken«, gibt es in JavaScript das Konzept der Zuwei- sung – Sie weisen einer
 						Variable ihren Inhalt zu. Ausgedrückt wird die Zuweisung in JS durch den sogenannten Zuweisungsoperator — dargestellt
@@ -63,7 +90,7 @@
 					<p>Deswegen gibt es hierfür eine Kurzschreibweise. Sie können das * und das = zu einem neuen Operator *= zusammenfassen:
 						<code>price *= 1.10; // same as: price = price * 1.10</code></p>
 					<p>Auf der linken Seite einer Zuweisung (auch einer zusammengesetzten) muss immer eine Variable stehen!</p>
-                    
+
 				</article>
 			</section>
 		</main>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+
+	<link rel="stylesheet" href="../css/master.css">
+</head>
+
+<body>
+	<div class="container">
+		<nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="scratchpad.html">scratchpad</a></li>
+					<li><a href="operatoren-datentypen.html">Operatoren + Datentypen</a></li>
+					<li><a href="variables.html">Variablen</a></li>
+					<li><a href="bezeichner.html">Bezeichner</a></li>
+					<li><a href="strings.html">Strings</a></li>
+					<li><a href="typenkonvertierung.html">Typenkonvertierung</a></li>
+					<li><a href="math.html">Math</a></li>
+					<li><a href="vergleichsoperatoren.html">Relationale Operatoren</a></li>
+					<li><a href="ifelse.html">If else</a></li>
+					<li><a href="LogischeOperatoren.html">Logische Operatoren</a></li>
+					<li><a href="stringMeth.html">String Meth.</a></li>
+					<li><a href="funktionen.html">Funktionen</a></li>
+					<li><a href="funcRueck.html">Funktionen return</a></li>
+					<li><a href="arrays.html">Arrays</a></li>
+					<li class="active"><a href="#">Scopes</a></li>
+					<li><a href="rekursion.html">Rekusion</a></li>
+					<li><a href="ranges.html">Ranges</a></li>
+				</ul>
+			</div>
+		</nav>
+		<main>
+			<section>
+				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
+				<article>
+					<h2>Scopes</h2>
+					<h3>let</h3>
+					<p>Ein Scope ist ein Bereich, innerhalb dessen eine Variable Gültigkeit besitzt. Typischerweise definieren Sie Variablen
+						mit let . Dadurch besitzt eine Variable local scope d. h. sie ist in genau dem lokalen Bereich gültig, in dem Sie sie
+						definiert haben. Ein Bereich ist dabei ein Code-Block, der durch geschweifte Klammern abgegrenzt ist, z. B. ein Zweig
+						einer if-Anwei- sung oder auch ein ganzer Funktionsrumpf.</p>
+					<p>Außerdem ist die Variable erst ab ihrer Deklaration gültig und nicht vorher, wie das folgende Beispiel demonstriert.</p>
+					<p><strong>»Also früher, da mussten wir noch...«</strong></p>
+					<p>Variablen dürfen erst nach ihrer Initialisierung verwendet werden?</p>
+					<p>Sie meinen, das klingt logisch — früher war es nicht so. Das ältere Schlüsselwort var zieht Variablendeklarationen immer
+						an den Anfang einer Funktion (sogenanntes Hoisting) und macht die Variablen in der kompletten Funktion verfügbar (function
+						scope). Das war oft sehr verwirrend und führte in der Praxis zu allerhand Fehlern.
+					</p>
+					<p>Definieren Sie Variablen deswegen immer mit let und so lokal wie irgendwie möglich. Ver- suchen Sie, den Bereich einer
+						Variable nur genau so groß zu halten, wie es nötig ist. Damit vermeiden Sie Konflikte, und der Bereich, in dem Sie
+						(potenziell) nach Fehlern suchen, bleibt überschaubar.
+					</p>
+					<h3>const</h3>
+					<p>Konstanten, die Sie mit Hilfe von const deklariert haben, sind übrigens auch im local scope gültig — genau wie bei let
+						. Deswegen können Sie const und let nahezu gleichermaßen verwenden, mit dem kleinen Unterschied, dass Konstanten eben
+						konstant sind — Sie ihnen also nach der Initialiserung keinen neuen Wert mehr zuweisen können.</p>
+					<h3>Parameter</h3>
+					<p>Funktionsparameter verhalten sich wie Variablen, die Sie zu Beginn einer Funktion deklarieren. Damit sind sie in der
+						ganzen Funktion verfügbar. Aus diesem Grund sollten Sie sowohl die Anzahl der Parameter kleinhalten (idealerweise drei
+						oder weniger) als auch die Länge der Funktion (als Daumenregel: maximal 10 Anweisungen — besser sind 5, noch besser
+						ist eine).</p>
+					<h3>Globale Variablen</h3>
+					<p>Globale Variablen sind Variablen, die Sie außerhalb von Funktionen, auf oberster (globaler) Ebene definieren. Sie sind
+						überall gültig.</p>
+					<p>Globale Variablen sollten Sie unbedingt vermeiden! Sie sind eine der häufigsten Fehlerursa- chen. Noch dazu sind solche
+						Fehler schwer zu finden. Sie müssten in Ihrem kompletten Pro- gramm verfolgen, wann welche Variablen welche Werte haben.
+						Es ist heutzutage zum Glück nicht mehr nötig, auf globale Variablen zurückzugreifen.</p>
+					<h3>strict mode</h3>
+					<p>Netscape legte anfangs großen Wert darauf, dass JS einsteigerfreundlich ist. Das führte leider zu einigen sehr fragwürdigen
+						Designentscheidungen. So gibt es viele Fehler und Probleme, die JS einfach akzeptiert, statt eine Fehlermeldung zu
+						werfen. Das erleichtert es einem Anfän- ger, erst einmal Code zum Laufen zu bekommen. Es verbirgt aber in größeren
+						Anwendungen oft tieferliegende Probleme. Das kann dazu führen, dass Sie Stunden (oder Tage) damit ver- bringen, einen
+						Fehler zu suchen, dessen Ursache sich an einer ganz anderen Stelle im Code befindet.
+					</p>
+					<p>Im strict mode erkennt JS viele potenzielle Probleme sofort und kennzeichnet sie als Fehler. JS ermahnt Sie sozusagen,
+						Ihren Code »sauber« zu schreiben. Das kostet Sie anfangs ein wenig Zeit, spart Ihnen aber später stundenlange Fehlersuche.
+						Hier ein Einzeiler als Beispiel:</p>
+					<p><code>price = 10;</code></p>
+					<p>Wie Sie schon wissen, starten Sie den strict mode, indem Sie am Anfang einer JS-Datei folgen- den Code einfügen:</p>
+					<p>Stimmt, das ist tatsächlich einfach nur ein String. Genau darin besteht der Trick. Für einen älte- ren Browser (der
+						den strict mode nicht kennt) ist das nur ein String-Literal. Eines, das nicht mal in einer Variable gespeichert wird.
+						Damit verwirft der Browser den Code, und bestehende Pro- gramme laufen einfach weiter. Ein Browser aber, der den strict
+						mode kennt, versteht den String und schaltet den Modus um. Der folgende Code führt zu einer Fehlermeldung.</p>
+					<p><code>"use strict"; <br>price = 10;</code></p>
+					<p>Sie erhalten die Fehlermeldung »ReferenceError: assignment to undeclared variable price«. Die Meldung sagt aus, dass
+						Sie einer noch nicht deklarierten Variable keinen Wert zuweisen dür- fen. Der Strict-Mode verhindert zwar nicht, dass
+						Sie globale Variablen angelegen können, aber zumindest kann es nicht mehr versehentlich passieren.</p>
+					<p>Es gibt viele weitere Situationen, in denen Sie "use strict"; vor großem Unheil bewahrt. Mehr dazu finden Sie auf der
+						<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">MDN-Seite zum strict mode</a></p>
+					<h3>Vorteile von Konstanten</h3>
+					<p>Grundsätzlich ist Code immer dann schwierig zu verstehen und birgt hohes Fehlerpotenzial, wenn er viele »bewegliche«
+						Teile hat. Damit ist gemeint, dass sich das Laufzeitverhalten vom statischen Code erheblich unterscheidet — also, wenn
+						Sie den Code erst ausführen müssen, um wirklich zu verstehen, was passiert. Bei komplett »unbeweglichem« Code passiert
+						zur Lauf- zeit nichts, was Sie nicht schon vorher dem Quellcode entnehmen können. Es gibt keinerlei Nebeneffekte. Das
+						ist typischerweise eine Eigenschaft funktionaler Sprachen.</p>
+					<p>JS ist keine rein funktionale Sprache, bietet aber viele funktionale Aspekte — Dinge, die Sie schon kennen, z. B. Funktionen
+						als Werte oder Array-Funktionen wie map , reduce & filter . Um die beweglichen Teile zu reduzieren, ist es enorm hilfreich,
+						auf globale Variablen zu ver- zichten und mit let zu arbeiten.</p>
+					<p>Variablen sind aber grundsätzlich bewegliche Teile. Sie sehen einer Variablen nicht direkt an, wie sich ihre Belegung
+						zur Laufzeit ändert. Sie müssen z. B. mittels console.log oder einem sogenannten Debugger verfolgen, welchen Wert welche
+						Variable zu welchem Zeitpunkt hat, um den Programmablauf zu verstehen. let beschränkt den Scope und verkleinert damit
+						den Bereich, den Sie auf einmal verstehen und im Fehlerfall untersuchen müssen.</p>
+					<p>Die Konstanten sind sozusagen eine Versicherung, dass Sie nicht versehentlich Variablen über- schreiben. Noch besser
+						ist es, Funktionen statt Variablen oder Konstanten zu verwenden. Die Funktionen speichern Sie dabei natürlich auch
+						wiederum in Konstanten:</p>
+				</article>
+			</section>
+		</main>
+	</div>
+</body>

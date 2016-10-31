@@ -3,13 +3,12 @@
 
 <head>
 	<meta charset="UTF-8">
+	<title>Document</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 		crossorigin="anonymous">
 
 	<link rel="stylesheet" href="../css/master.css">
-
-	<title>Document</title>
 </head>
 
 <body>
@@ -30,20 +29,25 @@
 					<li><a href="LogischeOperatoren.html">Logische Operatoren</a></li>
 					<li><a href="stringMeth.html">String Meth.</a></li>
 					<li><a href="funktionen.html">Funktionen</a></li>
-					<li class="active"><a href="#">Funktionen return</a></li>
+					<li><a href="funcRueck.html">Funktionen return</a></li>
 					<li><a href="arrays.html">Arrays</a></li>
 					<li><a href="scopes.html">Scopes</a></li>
-					<li><a href="rekursion.html">Rekusion</a></li>
+					<li class="active"><a href="#">Rekusion</a></li>
 					<li><a href="ranges.html">Ranges</a></li>
 				</ul>
 			</div>
 		</nav>
-		<p><code>let cylindricalVolume = (radius, height) => Math.PI * radius * radius * height;</code></p>
-		<p>Ist Ihnen der Unterschied zu den bisherigen Funktionen aufgefallen? Stimmt die geschweiften Klammern fehlen. <mark>Wenn Sie
-			die geschweiften Klammern weglassen, können Sie nur einen Ausdruck in den Rumpf packen</mark> — d. h. diese Kurzvariante funktioniert nicht
-			für mehrzeilige Funktionen. <mark>Der Vorteil ist aber, dass die Funktion den vom Ausdruck berechneten Wert zurückgibt.</mark></p>
+		<main>
+			<section>
+				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
+				<article>
+					<p>So einfach es auch ist, dass sich eine Funktion selbst aufrufen kann, erscheint es doch zunächst ein wenig gewöhnungsbedürftig,
+						oder? Genau das können Funktionen. Programmierer, die halbwegs gebildet sind, bezeichnen das Prinzip übrigens als Rekursion.</p>
+					<p>Wenn Sie hier einen Fehler machen, ist es möglich, dass das Programm in eine Endlos- schleife gerät und dadurch »hängenbleibt«.
+						Sie müssen daher auf jeden Fall dafür sorgen, dass die Abbruchbedingung auch irgendwann erfüllt wird.</p>
+
+				</article>
+			</section>
+		</main>
 	</div>
-
 </body>
-
-</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+
+	<link rel="stylesheet" href="../css/master.css">
+</head>
+
+<body>
+	<div class="container">
+		<nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="scratchpad.html">scratchpad</a></li>
+					<li><a href="operatoren-datentypen.html">Operatoren + Datentypen</a></li>
+					<li><a href="variables.html">Variablen</a></li>
+					<li><a href="bezeichner.html">Bezeichner</a></li>
+					<li><a href="strings.html">Strings</a></li>
+					<li><a href="typenkonvertierung.html">Typenkonvertierung</a></li>
+					<li><a href="math.html">Math</a></li>
+					<li><a href="vergleichsoperatoren.html">Relationale Operatoren</a></li>
+					<li><a href="ifelse.html">If else</a></li>
+					<li><a href="LogischeOperatoren.html">Logische Operatoren</a></li>
+					<li><a href="stringMeth.html">String Meth.</a></li>
+					<li><a href="funktionen.html">Funktionen</a></li>
+					<li><a href="funcRueck.html">Funktionen return</a></li>
+					<li><a href="arrays.html">Arrays</a></li>
+					<li><a href="scopes.html">Scopes</a></li>
+					<li><a href="rekursion.html">Rekusion</a></li>
+					<li class="active"><a href="#">Ranges</a></li>
+				</ul>
+			</div>
+		</nav>
+		<main>
+			<section>
+				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
+				<article>
+					<h3>Do x-times</h3>
+					<p>Leider funktioniert das so nicht. Viele funktionale Sprachen bieten eine solche times -Funk- tion an. JS gehört aber
+						leider nicht dazu — zumindest noch nicht. Zum Glück können Sie sie leicht selbst nachrüsten.</p>
+					<p>Nützliche utility Bibliotheken die die Times funktion anbieten: <a href="http://ramdajs.com/">Ramda</a> und
+						<a href="https://lodash.com" lodash></a>
+					</p>
+					<h2>Tipp weitgehend auf schleifen verzichten.</h2>
+					<h3>Imperativ vs. deklarativ?</h3>
+					<p>JS ist eine Sprache, die sowohl imperative als auch deklarative Konstrukte unterstützt. Imperativ bedeutet, dass Sie
+						formulieren müssen, wie Dinge funktionieren — ein Vorge- hen beschreiben. Deklarativ bedeutet, nur das Was zu beschreiben.</p>
+					<p>Beispielsweise ist es umständlich, detailliert den Vorgang zu beschreiben, wie ein Array durchlaufen wird und mit if
+						bestimmte Elemente herausgefiltert werden. Sagen Sie ein- fach gleich, Sie möchten ein gefiltertes Array. Deklarative
+						Lösungen sind meist kürzer, kla- rer und einfacher.</p>
+					<p>Schleifen sind ein klassisch imperatives Konzept und dementsprechend besser zu vermei- den. In JS war das bisher kaum
+						möglich, aber moderne Sprachmittel aus ES5/6 gepaart mit ein paar kleinen Ergänzungen wie range und time lassen einen
+						Verzicht auf Schlei- fen Realität werden.</p>
+					<h3>Argumente gegen klassische Schleifen</h3>
+					<ul>
+						<li>Wenn Sie ein Array durchlaufen möchten, ist es besser, mit einer High-Order-Funktion zu arbeiten, da Sie dann keine
+							Zählvariable benötigen. Außerdem sehen Sie der High- Order-Funktion direkt an, was der Sinn des Durchlaufs ist; soll
+							z. B. gefiltert oder eher gemappt werden?</li>
+						<li>Schleifen bergen immer die Gefahr eines Index-Fehlers (sehr beliebt ist der klassische +/- 1 Fehler, bei dem die Anzahl
+							der Schleifendurchläufe genau um eins abweicht). Bei High-Order-Funktionen wie map , reduce oder filter kann das nicht
+							passieren.
+						</li>
+						<li>Die Funktionen times und range können Sie statt Schleifen verwenden, wenn es nicht darum geht, Arrays zu durchlaufen,
+							sondern ein fester Wertebereich gefragt ist: eine Artikelnummer mit fester Länge, 6 Richtige im Lotto usw. Die beiden
+							Funktionen sind zwar ebenso wie Schleifen anfällig für Indexfehler — aber selbst im Fehlerfall kann es zumindest nicht
+							zu einer Endlosschleife kommen, die einen Programmabsturz verursacht.
+						</li>
+						<li>Außerdem bieten times und range weniger Stellschrauben als eine for -Schleife. So wird z. B. bei times nur die Anzahl
+							der Wiederholungen angegeben, keine Schleifen- bedingung oder Update-Operation. Weniger Stellschrauben zu haben, bedeutet
+							auch weniger Möglichkeiten für Fehler.</li>
+						<li>Es gibt eine Reihe von Programmierproblemen, die mit Rekursion einfacher zu lösen sind als mit Schleifen, so z. B.
+							die Fragestellung aus einer der letzten Übungen, ob eine Liste sortiert ist.</li>
+					</ul>
+				</article>
+			</section>
+		</main>
+	</div>
+</body>

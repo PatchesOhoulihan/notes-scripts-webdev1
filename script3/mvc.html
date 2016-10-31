@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Getting Started with Single Page Application</title>
+    <title>Single Page Application Model View Controller</title>
 
     <meta name="description" content="Workshop HTML...">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <link href="css/normalize.css" rel="stylesheet" media="all">
-    <link href="css/master.css" rel="stylesheet" media="all">
+    <link href="../css/master.css" rel="stylesheet" media="all">
     <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 
 </head>
@@ -17,32 +19,33 @@
 <body>
     <div id="site-wrapper">
         <header role="banner" class="pageheader">
-            <h1>Getting Started</h1>
+            
         </header>
-        <nav role="navigation" id="nav" class="navmain">
-            <h2>Navigation</h2>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Model View Controller</a></li>
-                <li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
-                <li><a href="auftrtt-angular.html">Auftritt Superheld Angular</a></li>
-                <li><a href="Javascript-server.html">Server Communication</a></li>
-                <li><a href="http.html">http Protokoll</a></li>
-                <li><a href="websockets.html">Websockets</a></li>
-            </ul>
+        <nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="#">Model View Controller</a></li>
+                    <li><a href="erste-anwendung.html">Die erste Anwendung</a></li>
+                    <li><a href="auftritt-angular.html">Auftritt Superheld Angular</a></li>
+                    <li><a href="Javascript-server.html">Server Communication</a></li>
+                    <li><a href="http.html">http Protokoll</a></li>
+                    <li><a href="websockets.html">Websockets</a></li>
+                </ul>
+            </div>
         </nav>
-
-        <main role="main" aria-labeledby="content">
+        <main role="main" aria-labeledby="content" class="container">
             <section>
-                <header>
-                    <p>➤ wie eine Anwendung aufgebaut ist. ➤ was MVC bedeutet und warum man sich danach richten sollte.</p>
+                <header class="jumbotron">
+                    <h1>Model View Controlller</h1>
+                    <p>➤ wie eine Anwendung aufgebaut ist. <br>➤ was MVC bedeutet und warum man sich danach richten sollte.</p>
                     <img srcset="" src="" alt="">
                 </header>
                 <article>
-                    <h2>MVC</h2>
+                    <h2>1. MVC</h2>
                     <p>Der norwegische Informatiker Trygve Reenskaug hat sich darüber bereits 1979 Gedanken gemacht und ein
-                        allgemeines Konzept vorgestellt, das sich als De-facto-Standard für den Gro- bentwurf von Anwendungen
-                        durchgesetzt hat. Das Muster wird Model-View-Controller (kurz MVC) genannt — siehe T. M. H. R EENSKAUG
+                        allgemeines Konzept vorgestellt, das sich als De-facto-Standard für den Grobentwurf von Anwendungen
+                        durchgesetzt hat. Das Muster wird Model-View-Controller (kurz MVC) genannt siehe T. M. H. R EENSKAUG
                         (1979).
                     </p>
                     <p>Wie der Name schon andeutet, wird eine Anwendung gemäß MVC in drei Einheiten strukturiert:
@@ -54,7 +57,7 @@
                     </ul>
                     <h3>Das Datenmodell</h3>
                     <p>Der Zweck jeder Anwendung ist schlussendlich die Verwaltung von Daten — egal ob es um eine Komponente
-                        in der CAD-Software, einen Text im Editor oder eine virtuelle Welt im Video- spiel geht.</p>
+                        in der CAD-Software, einen Text im Editor oder eine virtuelle Welt im Videospiel geht.</p>
                     <p>Zur Verwaltung im Rechner muss die Komponente, der Text oder die virtuelle Welt abstrahiert und in Form
                         von Daten erfasst sein. Diesen Teil bezeichnet man als das Datenmodell.</p>
                     <p>Example: </p>
@@ -69,7 +72,7 @@
                             };
                         </code>
                     </p>
-                    <h2>Präsentation und Steuerung</h2>
+                    <h3>Präsentation und Steuerung</h3>
                     <p>Die Präsentation kümmert sich um die Darstellung des Datenmodells und der Elemente der Benutzerschnittstelle.
                     </p>
                     <p>Eine komplexe Anwendungen besteht aus mehreren Präsentationen, die verschiedene Aspekte des Datenmodells
@@ -82,7 +85,7 @@
                         die Präsentation aktualisieren oder wechseln.</p>
                     <p>Den Code, der das Datenmodell ändert, nennt man auch Geschäftslogik. Je nach Ansatz kann die Geschäftslogik
                         Teil des Datenmodells oder Teil der Steuerung sein.</p>
-                    <h2>MVC im Web</h2>
+                    <h2>2. MVC im Web</h2>
                     <p>Beachten Sie, dass MVC ein Muster für einen Grobentwurf ist. Die Details werden sicherlich je nach verwendeter
                         Plattform, Programmiersprache und Framework anders umgesetzt werden.</p>
                     <h4>Plattformen</h4>

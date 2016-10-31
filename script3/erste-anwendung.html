@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Getting Started with Single Page Application</title>
+    <title>Single Page Application - Die erste Anwendung</title>
 
     <meta name="description" content="Workshop HTML...">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <link href="css/normalize.css" rel="stylesheet" media="all">
-    <link href="css/master.css" rel="stylesheet" media="all">
+    <link href="../css/master.css" rel="stylesheet" media="all">
     <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 
 </head>
@@ -17,25 +19,26 @@
 <body>
     <div id="site-wrapper">
         <header role="banner" class="pageheader">
-            <h1>Getting Started</h1>
+            
         </header>
-        <nav role="navigation" id="nav" class="navmain">
-            <h2>Navigation</h2>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="mvc.html">Model View Controller</a></li>
-                <li><a href="#">Die erste Anwendung</a></li>
-                <li><a href="auftrtt-angular.html">Auftritt Superheld Angular</a></li>
-                <li><a href="Javascript-server.html">Server Communication</a></li>
-                <li><a href="http.html">http Protokoll</a></li>
-                <li><a href="websockets.html">Websockets</a></li>
-            </ul>
+        <nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mvc.html">Model View Controller</a></li>
+                    <li class="active"><a href="#">Die erste Anwendung</a></li>
+                    <li><a href="auftritt-angular.html">Auftritt Superheld Angular</a></li>
+                    <li><a href="Javascript-server.html">Server Communication</a></li>
+                    <li><a href="http.html">http Protokoll</a></li>
+                    <li><a href="websockets.html">Websockets</a></li>
+                </ul>
+            </div>
         </nav>
-
-        <main role="main" aria-labeledby="content">
+        <main role="main" aria-labeledby="content" class="container">
             <section>
-                <header>
-                    <p>➤ wie man Webseiten per HTTP-Protokoll aufrufen kann. ➤ wie man eine einfache Anwendung unter Berücksichtigung
+                <header class="jumbotron">
+                    <h1>Die erste Anwendung</h1>
+                    <p>➤ wie man Webseiten per HTTP-Protokoll aufrufen kann. <br>➤ wie man eine einfache Anwendung unter Berücksichtigung
                         des MVC-Entwurfsmusters in JavaScript programmiert.</p>
                     <img srcset="" src="" alt="">
                 </header>

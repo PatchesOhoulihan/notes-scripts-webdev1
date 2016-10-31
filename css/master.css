@@ -1,8 +1,12 @@
-#site-wrapper{
-    margin: 0 auto 0 auto;
-    max-width: 960px;
+h2,h3{
+    margin-top: 75px;
 }
 
-p{
-    color: red;
+body{
+    margin-top: 50px;
+    background-color: skyblue;
+}
+
+.container{
+    background-color: ghostwhite;
 }

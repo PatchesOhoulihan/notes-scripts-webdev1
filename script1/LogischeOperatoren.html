@@ -4,16 +4,89 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/master.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="../css/master.css">
 </head>
 
 <body>
-	<div id="site-wrapper">
+	<div class="container">
+	 <nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="scratchpad.html">scratchpad</a></li>
+            <li><a href="operatoren-datentypen.html">Operatoren + Datentypen</a></li>
+            <li><a href="variables.html">Variablen</a></li>
+            <li><a href="bezeichner.html">Bezeichner</a></li>
+            <li><a href="strings.html">Strings</a></li>
+            <li><a href="typenkonvertierung.html">Typenkonvertierung</a></li>
+            <li><a href="math.html">Math</a></li>
+            <li><a href="vergleichsoperatoren.html">Relationale Operatoren</a></li>
+            <li><a href="ifelse.html">If else</a></li>
+            <li class="active"><a href="#">Logische Operatoren</a></li>
+            <li><a href="stringMeth.html">String Meth.</a></li>
+            <li><a href="funktionen.html">Funktionen</a></li>
+            <li><a href="funcRueck.html">Funktionen return</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="scopes.html">Scopes</a></li>
+            <li><a href="rekursion.html">Rekusion</a></li>
+            <li><a href="ranges.html">Ranges</a></li>    
+        </ul>
+      </div>
+    </nav>
 		<main>
 			<section>
-				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
+				<h1>Logische Operatoren</h1>
 				<article>
-					<h2>Besonderheiten bei nur einer Anweisung</h2>
+					<h2>Operatoren hierachie</h2>
+					<h3>Übersicht Buch</h3>
+					<table class="table table-bordered">
+						<thead>
+							<td>Priorität/Präzedenz</td>
+							<td>Operator</td>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Functionaufruf(alert()) <br>Klammern</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>! <br>typeof</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>* <br>/ <br>%</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>+ <br>-</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>< <br>> <br><= <br>>= </td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>=== <br>!==</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>&& </td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>||</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>=<br>+=<br>-=<br>*=<br>-=<br>/=<br>%=</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>Komplette Übersicht <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">Übersicht Mozilla Developer</a></p>
 				</article>
 			</section>
 		</main>

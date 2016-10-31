@@ -4,166 +4,201 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/master.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+
+	<link rel="stylesheet" href="../css/master.css">
 </head>
 
 <body>
-	<div id="site-wrapper">
+	<div class="container">
+		<nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="scratchpad.html">scratchpad</a></li>
+					<li><a href="operatoren-datentypen.html">Operatoren + Datentypen</a></li>
+					<li><a href="variables.html">Variablen</a></li>
+					<li><a href="bezeichner.html">Bezeichner</a></li>
+					<li><a href="strings.html">Strings</a></li>
+					<li><a href="typenkonvertierung.html">Typenkonvertierung</a></li>
+					<li><a href="math.html">Math</a></li>
+					<li><a href="vergleichsoperatoren.html">Relationale Operatoren</a></li>
+					<li><a href="ifelse.html">If else</a></li>
+					<li><a href="LogischeOperatoren.html">Logische Operatoren</a></li>
+					<li><a href="stringMeth.html">String Meth.</a></li>
+					<li><a href="funktionen.html">Funktionen</a></li>
+					<li><a href="funcRueck.html">Funktionen return</a></li>
+					<li class="active"><a href="#">Arrays</a></li>
+					<li><a href="scopes.html">Scopes</a></li>
+					<li><a href="rekursion.html">Rekusion</a></li>
+					<li><a href="ranges.html">Ranges</a></li>
+				</ul>
+			</div>
+		</nav>
 		<main>
 			<section>
 				<h1>5 Sehr bezeichnend, diese Bezeichner</h1>
 				<article>
-                    <h2>Erzeugen von Arrays</h2>
-                    <pre>
-                        <code>
+					<h2>Erzeugen von Arrays</h2>
+					<pre>
+						<code>
                             let container = ['Hans', 'Peter', 'Manni'];
                         </code>
-                    </pre>
-                    <h2>Länge von Arrays</h2>
-                    <pre><code>container.length</code></pre>
-                    <h2>Zugrreifen mit dem Index Operator</h2>
-                    <p>Die Nummerierung wird als Index und die Namen als Werte des Arrays bezeichnet. Wenn man auf die einzelnen Namen zugreifen möchte verwendet man den sogenannten <strong>Indexoperator aus [] = container[index]</strong> </p>
-                    <h2>Array Methoden</h2>
-                    <table>
-                        <thead>
-                            <td>Function</td>
-                            <td>Zweck</td>
-                            <td>Beispielaufruf(a = ["a","b","c","d"])</td>
-                            <td>a.join("")</td>
-                            <td>Rückgabewert(Datentype)</td>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>push</code></td>
-                                <td>fügt Elemente am Ende des Arrays an</td>
-                                <td><code>a.push('x', 'y')</code></td>
-                                <td>abcdxy</td>
-                                <td>6(Number)</td>
-                            </tr>
-                            <tr>
-                                <td><code>pop</code></td>
-                                <td>entfernt das Element am Ende des Arrays</td>
-                                <td><code>a.pop()</code></td>
-                                <td>abc</td>
-                                <td>d (String)</td>
-                            </tr>
-                            <tr>
-                                <td><code>unshift</code></td>
-                                <td>fügt Elemente am Anfang des Arrays an</td>
-                                <td><code>a.unshift('x','y')</code></td>
-                                <td>xyabcd</td>
-                                <td>6 (Number)</td>
-                            </tr>
-                            <tr>
-                                <td><code>shift</code></td>
-                                <td>entfernt das Element am Anfang des Arrays</td>
-                                <td><code>a.shift()</code></td>
-                                <td>bcd</td>
-                                <td>a (string)</td>
-                            </tr>
-                            <tr>
-                                <td><code>slice</code></td>
-                                <td>fertigt eine Kopie von einem Teil des Arrays an.</td>
-                                <td><code>a.slice(2,4)</code></td>
-                                <td>abcd</td>
-                                <td>c,d (Array)</td>
-                            </tr>
-                            <tr>
-                                <td><code>splice</code></td>
-                                <td>entfernt und/ oder ergänzt Elemente im Array</td>
-                                <td><code>a.splice(2,2,'x')</code></td>
-                                <td>abx</td>
-                                <td>c, d (Array)</td>
-                            </tr>
-                            <tr>
-                                <td><code>a.sort()</code></td>
-                                <td>sortiert das Array</td>
-                                <td><code>a.sort()</code></td>
-                                <td>abcd</td>
-                                <td>abcd(array)</td>
-                            </tr>
-                            <tr>
-                                <td><code>reverse</code></td>
-                                <td>kehrt die Reihenfolge der Elemente um</td>
-                                <td><code>a.reverse()</code></td>
-                                <td>dcba</td>
-                                <td>b,c,b,a(Array)</td>
-                            </tr>
-                            <tr>
-                                <td><code>concat</code></td>
-                                <td>Verbindet ein Array mit einem oder mehreren Elementen oder Arrays</td>
-                                <td><code>a.concat(["x","y"])</code></td>
-                                <td>abcd</td>
-                                <td>a,b,c,d,x,y (Array)</td>
-                            </tr>
-                            <tr>
-                                <td><code>fill</code></td>
-                                <td>Befüllt alle Elemente mit einem Wert</td>
-                                <td><code>a.fill("x")</code></td>
-                                <td>xxxx</td>
-                                <td>x,x,x,x (Array)</td>
-                            </tr>
-                            <tr>
-                                <td><code>indexOf</code></td>
-                                <td>Ermittelt die Position(index) eines Elements im Array</td>
-                                <td><code>a.indexOf('c')</code></td>
-                                <td>abcd</td>
-                                <td>2 (Number)</td>
-                            </tr>
-                            <tr>
-                                <td><code>lastIndexOf</code></td>
-                                <td>Ermittelt die Postion(index) eines Elements im Array (vom Ende her)</td>
-                                <td><code>a.indexOf("c")</code></td>
-                                <td>abcd</td>
-                                <td>2 (Number)</td>
-                            </tr>
-                            <tr>
-                                <td><code>split</code></td>
-                                <td>Zerlegt einen String anhand eines Separators in ein Array</td>
-                                <td><code>("a-b-c-d").split("-")</code></td>
-                                <td></td>
-                                <td>a,b,c,d(Array)</td>
-                            </tr>
-                            <tr>
-                                <td><code>join</code></td>
-                                <td>Verbindet alle Elemente eines Arrays zu einem String</td>
-                                <td>a.join('=')<code></code></td>
-                                <td>abcd</td>
-                                <td>a=b=c=d (String)</td>
-                            </tr>
-                            <tr>
-                                <td><code>toString</code></td>
-                                <td>wie join, verwendet aber das Komma als festen Separator</td>
-                                <td><code>a.toString()</code></td>
-                                <td>abcd</td>
-                                <td>a,b,c,d (string)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h3>Funktionen als Parameter</h3>
-                    <p>Bei JS handelt es sich um eine sogenannte <strong>Multiparadigmen-Sprache</strong> Das bedeutet, das JS Elemente aus verschiedenen dieser Paradigmen verwendet. Prozedurale/struktuerelle Elemente haben sie bereits kennengelernt zB. Verzweigung mit if.</p>
-                    <p>Von seinen funktionalen Vorbilderen hat JS die Besonderheit geerbt, dass Funktionen einfach Werte sind. Genauso, wie Sie eine Zahl einer Variable zuordnen können, können Sie das auch mit Funktionen Tuen</p>
-                    <p>Die funktionale Programmierung spricht vo sogenannten <strong>first-class citizens</strong> oder <strong>first class functions</strong> die Sprache behandelt functionen genauso wie andere Werte</p>
-                    <h3>Sort funktion unter der Lupe</h3>
-                    <pre><code>
+					</pre>
+					<h2>Länge von Arrays</h2>
+					<pre><code>container.length</code></pre>
+					<h2>Zugrreifen mit dem Index Operator</h2>
+					<p>Die Nummerierung wird als Index und die Namen als Werte des Arrays bezeichnet. Wenn man auf die einzelnen Namen zugreifen
+						möchte verwendet man den sogenannten <strong>Indexoperator aus [] = container[index]</strong> </p>
+					<h2>Array Methoden</h2>
+					<table class="table table-bordered">
+						<thead>
+							<td>Function</td>
+							<td>Zweck</td>
+							<td>Beispielaufruf(a = ["a","b","c","d"])</td>
+							<td>a.join("")</td>
+							<td>Rückgabewert(Datentype)</td>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>push</code></td>
+								<td>fügt Elemente am Ende des Arrays an</td>
+								<td><code>a.push('x', 'y')</code></td>
+								<td>abcdxy</td>
+								<td>6(Number)</td>
+							</tr>
+							<tr>
+								<td><code>pop</code></td>
+								<td>entfernt das Element am Ende des Arrays</td>
+								<td><code>a.pop()</code></td>
+								<td>abc</td>
+								<td>d (String)</td>
+							</tr>
+							<tr>
+								<td><code>unshift</code></td>
+								<td>fügt Elemente am Anfang des Arrays an</td>
+								<td><code>a.unshift('x','y')</code></td>
+								<td>xyabcd</td>
+								<td>6 (Number)</td>
+							</tr>
+							<tr>
+								<td><code>shift</code></td>
+								<td>entfernt das Element am Anfang des Arrays</td>
+								<td><code>a.shift()</code></td>
+								<td>bcd</td>
+								<td>a (string)</td>
+							</tr>
+							<tr>
+								<td><code>slice</code></td>
+								<td>fertigt eine Kopie von einem Teil des Arrays an.</td>
+								<td><code>a.slice(2,4)</code></td>
+								<td>abcd</td>
+								<td>c,d (Array)</td>
+							</tr>
+							<tr>
+								<td><code>splice</code></td>
+								<td>entfernt und/ oder ergänzt Elemente im Array</td>
+								<td><code>a.splice(2,2,'x')</code></td>
+								<td>abx</td>
+								<td>c, d (Array)</td>
+							</tr>
+							<tr>
+								<td><code>a.sort()</code></td>
+								<td>sortiert das Array</td>
+								<td><code>a.sort()</code></td>
+								<td>abcd</td>
+								<td>abcd(array)</td>
+							</tr>
+							<tr>
+								<td><code>reverse</code></td>
+								<td>kehrt die Reihenfolge der Elemente um</td>
+								<td><code>a.reverse()</code></td>
+								<td>dcba</td>
+								<td>b,c,b,a(Array)</td>
+							</tr>
+							<tr>
+								<td><code>concat</code></td>
+								<td>Verbindet ein Array mit einem oder mehreren Elementen oder Arrays</td>
+								<td><code>a.concat(["x","y"])</code></td>
+								<td>abcd</td>
+								<td>a,b,c,d,x,y (Array)</td>
+							</tr>
+							<tr>
+								<td><code>fill</code></td>
+								<td>Befüllt alle Elemente mit einem Wert</td>
+								<td><code>a.fill("x")</code></td>
+								<td>xxxx</td>
+								<td>x,x,x,x (Array)</td>
+							</tr>
+							<tr>
+								<td><code>indexOf</code></td>
+								<td>Ermittelt die Position(index) eines Elements im Array</td>
+								<td><code>a.indexOf('c')</code></td>
+								<td>abcd</td>
+								<td>2 (Number)</td>
+							</tr>
+							<tr>
+								<td><code>lastIndexOf</code></td>
+								<td>Ermittelt die Postion(index) eines Elements im Array (vom Ende her)</td>
+								<td><code>a.indexOf("c")</code></td>
+								<td>abcd</td>
+								<td>2 (Number)</td>
+							</tr>
+							<tr>
+								<td><code>split</code></td>
+								<td>Zerlegt einen String anhand eines Separators in ein Array</td>
+								<td><code>("a-b-c-d").split("-")</code></td>
+								<td></td>
+								<td>a,b,c,d(Array)</td>
+							</tr>
+							<tr>
+								<td><code>join</code></td>
+								<td>Verbindet alle Elemente eines Arrays zu einem String</td>
+								<td>a.join('=')<code></code></td>
+								<td>abcd</td>
+								<td>a=b=c=d (String)</td>
+							</tr>
+							<tr>
+								<td><code>toString</code></td>
+								<td>wie join, verwendet aber das Komma als festen Separator</td>
+								<td><code>a.toString()</code></td>
+								<td>abcd</td>
+								<td>a,b,c,d (string)</td>
+							</tr>
+						</tbody>
+					</table>
+					<h3>Funktionen als Parameter</h3>
+					<p>Bei JS handelt es sich um eine sogenannte <strong>Multiparadigmen-Sprache</strong> Das bedeutet, das JS Elemente aus
+						verschiedenen dieser Paradigmen verwendet. Prozedurale/struktuerelle Elemente haben sie bereits kennengelernt zB. Verzweigung
+						mit if.</p>
+					<p>Von seinen funktionalen Vorbilderen hat JS die Besonderheit geerbt, dass Funktionen einfach Werte sind. Genauso, wie
+						Sie eine Zahl einer Variable zuordnen können, können Sie das auch mit Funktionen Tuen</p>
+					<p>Die funktionale Programmierung spricht vo sogenannten <strong>first-class citizens</strong> oder <strong>first class functions</strong>						die Sprache behandelt functionen genauso wie andere Werte</p>
+					<h3>Sort funktion unter der Lupe</h3>
+					<pre><code>
                             [16,10,2,12,1].sort();
                             Erwartetes Ergebnis => [1,2,10,12,16]
                             tatsächliches Ergebnis => [1,10,12,16,2]
                         </code></pre>
-                        <p>Sort() führt standardmäßig eine sogenannte <strong>lexikographische</strong> Sortierung durch. Dabei behandelt sie Zahlen genauso wie Strings. Lexiographisch betrachtet ist 10 kleiner als 2</p>
-                    <h3>Sort mit function als Parameter</h3>
-                    <p>Sort erwartet von der Vergleichsfunktion mit 2 Parametern.</p>
-                    <p>Das Ergebnis der Funktion muss folgenden Konvention einhalten: <br>Das 0 zurückgeben wird, falls a und b gleich sind. <br>eine Positive Zahlzurück geben wird, falls a größer b ist. <br>eine negative Zahl zurückgeben wird, falls a kleiner als b ist.</p>
-                    <p>Erreicht kann dies unteranderen bei Zahlen das man b von a subtrahiert.</p>
-                    <pre>
-                        <code>
+					<p>Sort() führt standardmäßig eine sogenannte <strong>lexikographische</strong> Sortierung durch. Dabei behandelt sie Zahlen
+						genauso wie Strings. Lexiographisch betrachtet ist 10 kleiner als 2</p>
+					<h3>Sort mit function als Parameter</h3>
+					<p>Sort erwartet von der Vergleichsfunktion mit 2 Parametern.</p>
+					<p>Das Ergebnis der Funktion muss folgenden Konvention einhalten: <br>Das 0 zurückgeben wird, falls a und b gleich sind.
+						<br>eine Positive Zahlzurück geben wird, falls a größer b ist. <br>eine negative Zahl zurückgeben wird, falls a kleiner
+						als b ist.</p>
+					<p>Erreicht kann dies unteranderen bei Zahlen das man b von a subtrahiert.</p>
+					<pre>
+						<code>
                             let compareNumerical = (a,b) => a-b;
                             array.sort(compareNumerical);
                         </code>
-                    </pre>
-                    <p>Wenn man Strings mit einander vergleichen muss kann man sich ähnlich behelfen</p>
-                    <pre>
-                        <code>
+					</pre>
+					<p>Wenn man Strings mit einander vergleichen muss kann man sich ähnlich behelfen</p>
+					<pre>
+						<code>
                             let isAdmin = name => name.indexOf('Admin') !== -1;
 
                             let compareChatters = (a, b) => {
@@ -174,9 +209,72 @@
 
                             let adminFirst = array.sort(compareChatters);
                         </code>
-                    </pre>
-                    <p>Funktionen wie sort, deren Parameter selbst wieder Funktionen sind (oder sein können), heißen <strong>Higher-Order-funktionen</strong>Fachvokabular der Funktionalen Programmierung.</p>
-                    
+					</pre>
+					<p>Funktionen wie sort, deren Parameter selbst wieder Funktionen sind (oder sein können), heißen <strong>Higher-Order-funktionen</strong>Fachvokabular
+						der Funktionalen Programmierung.</p>
+					<table class="table table-bordered">
+						<caption>Übersicht der Higher-order-Funktionen von Array am Beispiel <em>let a = [1,2,3,4,5]</em></caption>
+						<thead>
+							<td>Name</td>
+							<td>Zweck</td>
+							<td>beispiel</td>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>sort</code></td>
+								<td>Sortiert alle Elemente anhand einer compare Funktion
+								</td>
+								<td><code>a.sort((x, y) => y - x); // => [5, 4, 3, 2, 1]</code></td>
+							</tr>
+							<tr>
+								<td><code>map</code></td>
+								<td>Bildet ein Array auf ein anderes ab - anhand der angegebenen Funktion</td>
+								<td><code>a.map(x => x * x) // => [1, 4, 9, 16, 25]</code></td>
+							</tr>
+							<tr>
+								<td><code>filter</code></td>
+								<td>Filtert Elemente anhand eines angegebenen Kriteri- ums (Bedingung)</td>
+								<td><code>let even = x => x % 2 === 0; a.filter(even) // => [2, 4]</code></td>
+							</tr>
+							<tr>
+								<td><code>reduce</code></td>
+								<td>Reduziert das Array auf einen einzigen Wert, indem es jeweils zwei Elemente mit der angegeben Funk- tion reduziert.
+									Optional besteht die Möglichkeit, als zweiten Parameter einen Startwert anzugeben.</td>
+								<td><code>a.reduce((x, y) => x + y); // => 1 + 2 + 3 + 4 + 5 => 15
+                                          a.reduce((x, y) => x + y, 10); // => 10 + 1 + 2 + 3 + 4 + 5 => 25</code></td>
+							</tr>
+							<tr>
+								<td><code>reduceRight</code></td>
+								<td>wie reduce, aber von rechts. Auch hier kann ein optionaler Startwert angegeben werden.</td>
+								<td><code>a.reduceRight((x,y) => x - y); // => 5 - 4 - 3 -2 - 1 => -5</code></td>
+							</tr>
+							<tr>
+								<td><code>every</code></td>
+								<td>Gibt true zurück, falls alle Elemente der angegebenen Bedingung entsprechen</td>
+								<td><code>let even = x => x % 2 === 0; a.every(even); // => false</code></td>
+							</tr>
+							<tr>
+								<td><code>some</code></td>
+								<td>Gibt true zurück, falls einige Elemente der angegebenen Bedingung entsprechen</td>
+								<td><code>let even = x => x % 2 === 0; a.some(even); // => true</code></td>
+							</tr>
+							<tr>
+								<td><code>forEach</code></td>
+								<td>Führt die angegebene Funktion für jedes Element aus.</td>
+								<td><code>a.forEach(x =>console.log(x));</code></td>
+							</tr>
+							<tr>
+								<td><code>find</code></td>
+								<td>Findet das erste Element, das die angegebene Bedingung erfüllt</td>
+								<td><code>let even = x => x % 2 === 0; a.find(even) // => 2</code></td>
+							</tr>
+							<tr>
+								<td><code>findIndex</code></td>
+								<td>Gibt den Index des ersten Elements zurück, das die angegebene Bedingung erfüllt</td>
+								<td><code>let even = x => x % 2 === 0; a.findIndex(even) // => 1</code></td>
+							</tr>
+						</tbody>
+					</table>
 				</article>
 			</section>
 		</main>

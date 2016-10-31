@@ -2,62 +2,87 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/master.css">
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+
+	<link rel="stylesheet" href="../css/master.css">
 </head>
 
 <body>
-    <div id="site-wrapper">
-        <main>
-            <section>
-                <h1>2 Los geht's mit Firefox Scratchpad</h1>
-                <article>
-                    <h2>2.1 Wo ist denn die IDE</h2>
-                    <p>Öffnen Sie die Firefox Web Console aus dem Developer-Menü (Abb. 2.1) oder per Tastatur-Kürzel: <strong>ctrl-shift-k </strong>                        bzw. cmd-alt-k.</p>
-                    <p>Öffnen Sie das Scratchpad (deutsch: JavaScript-Umgebung) aus dem Developer-Menü (Abb. 2.2) oder per Tastatur-Kürzel:
-                        shift-f4 bzw. fn-shift-f4.</p>
-                </article>
-                <article>
-                    <h2>Alarm! Alarm! - Die Konsole brennt.</h2>
-                    <p>Die Funktion alert öffnet eine sogenannte Alert-Box im Browserfenster. Sie ist dafür gedacht, Anwendern
-                        wichtige Warnmeldungen anzuzeigen. <strong>Die Alert-Box ist ein modales
+	<div class="container">
+		<nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="#">scratchpad</a></li>
+					<li><a href="operatoren-datentypen.html">Operatoren + Datentypen</a></li>
+					<li><a href="variables.html">Variablen</a></li>
+					<li><a href="bezeichner.html">Bezeichner</a></li>
+					<li><a href="strings.html">Strings</a></li>
+					<li><a href="typenkonvertierung.html">Typenkonvertierung</a></li>
+					<li><a href="math.html">Math</a></li>
+					<li><a href="vergleichsoperatoren.html">Relationale Operatoren</a></li>
+					<li><a href="ifelse.html">If else</a></li>
+					<li><a href="LogischeOperatoren.html">Logische Operatoren</a></li>
+					<li><a href="stringMeth.html">String Meth.</a></li>
+					<li><a href="funktionen.html">Funktionen</a></li>
+					<li><a href="funcRueck.html">Funktionen return</a></li>
+					<li><a href="arrays.html">Arrays</a></li>
+					<li><a href="scopes.html">Scopes</a></li>
+					<li><a href="rekursion.html">Rekusion</a></li>
+					<li><a href="ranges.html">Ranges</a></li>
+				</ul>
+			</div>
+		</nav>
+		<main>
+			<section>
+				<h1>2 Los geht's mit Firefox Scratchpad</h1>
+				<article>
+					<h2>2.1 Wo ist denn die IDE</h2>
+					<p>Öffnen Sie die Firefox Web Console aus dem Developer-Menü (Abb. 2.1) oder per Tastatur-Kürzel: <strong>ctrl-shift-k </strong>						bzw. cmd-alt-k.</p>
+					<p>Öffnen Sie das Scratchpad (deutsch: JavaScript-Umgebung) aus dem Developer-Menü (Abb. 2.2) oder per Tastatur-Kürzel:
+						shift-f4 bzw. fn-shift-f4.</p>
+				</article>
+				<article>
+					<h2>Alarm! Alarm! - Die Konsole brennt.</h2>
+					<p>Die Funktion alert öffnet eine sogenannte Alert-Box im Browserfenster. Sie ist dafür gedacht, Anwendern wichtige Warnmeldungen
+						anzuzeigen. <strong>Die Alert-Box ist ein modales
 Fenster</strong>, d. h. der Anwender muss sie erst wegklicken, bevor er die Website weiter benutzen kann. Aus Usability-Gründen
-                        ist davon abzuraten. Setzen Sie sie nur in wenigen begründeten Fällen ein. Zudem handelt es sich
-                        dabei um eine Funktion, die nur in Browserumgebungen zur Verfügung steht. Wenn Sie z. B. auf dem
-                        Server unter Node.js programmieren, können Sie sie nicht verwenden.</p>
-                    <p>Schreiben Sie jede Anweisung in eine eigene Zeile und schließen Sie sie mit einem Semikolon (;) ab. Sie
-                        können das Semikolon auch weglassen. In diesem Fall greift ein Mechanismus, der sich Automatic Semicolon
-                        Insertion (ASI) (dt.: automatische Semikolon-Ergänzung) nennt und setzt das Semikolon für Sie automatisch.
-                        Das ist einerseits recht praktisch, andererseits folgt die automatische Semikolon-Ergänzung relativ
-                        komplexen Regeln, die Sie erst einmal ler- nen sollten.</p>
-                    <p>Programmierrichtlinien: ➤ Schreiben Sie immer genau eine Anweisung in genau eine Zeile. ➤ Beenden Sie
-                        jede Anweisung mit einem Semikolon.</p>
-                </article>
-                <article>
-                    <h2>Seien Sie strict</h2>
-                    <p>Es gibt vielmehr die Möglichkeit, JS in den sogenannten strict mode zu versetzen. In diesem Modus verhält
-                        sich JS tatsächlich strikter. Das bedeutet:</p>
-                    <ul>
-                        <li>Einige Richtlinien, die der standard mode als reine Konvention betrachtet, führen im strict mode
-                            zu einer Fehlermeldung.</li>
-                        <li>Viele veraltete Sprachkonstrukte werden nicht mehr akzeptiert (z. B. die with -Anweisung)</li>
-                        <li>Fehlerhafter oder problematischer Code, den JS im standard mode ohne Murren akzep- tiert, führt nun
-                            zu einer (meist) aussagekräftigen Fehlermeldung. Damit bemerken Sie Pro- bleme frühzeitig und
-                            sparen sich die oft aufwendige Fehlersuche.</li>
-                        <li>Einige ES6-spezifischen Sprachkonstrukte (z. B. let ) lassen sich in den meisten Umgebun- gen überhaupt
-                            nur im strict mode verwenden.</li>
-                    </ul>
-                    <p>Um JS in den strict mode zu versetzen, müssen Sie nicht viel tun: Es genügt, wenn Sie die Anweisung
-                        <strong>"use strict";</strong> an den Anfang Ihrer JS-Datei schreiben.</p>
-                </article>
-                <article>
-                    <h2>Kommentare oder: Geben Sie doch ihren Senf dazu.</h2>
-                    <p>Einzeilige Kommentare binden Sie mit zwei Slashes // ein.</p>
-                    <p>Mehrzeilige Kommentare erlauben Ihnen, längere — eben mehrzeilige — Texte in den Code
-                    einzubetten. Ein solcher Kommentar beginnt mit den Zeichen /* und endet mit */ .</p>
-                </article>
-            </section>
-        </main>
-    </div>
+						ist davon abzuraten. Setzen Sie sie nur in wenigen begründeten Fällen ein. Zudem handelt es sich dabei um eine Funktion,
+						die nur in Browserumgebungen zur Verfügung steht. Wenn Sie z. B. auf dem Server unter Node.js programmieren, können
+						Sie sie nicht verwenden.</p>
+					<p>Schreiben Sie jede Anweisung in eine eigene Zeile und schließen Sie sie mit einem Semikolon (;) ab. Sie können das Semikolon
+						auch weglassen. In diesem Fall greift ein Mechanismus, der sich Automatic Semicolon Insertion (ASI) (dt.: automatische
+						Semikolon-Ergänzung) nennt und setzt das Semikolon für Sie automatisch. Das ist einerseits recht praktisch, andererseits
+						folgt die automatische Semikolon-Ergänzung relativ komplexen Regeln, die Sie erst einmal ler- nen sollten.</p>
+					<p>Programmierrichtlinien: ➤ Schreiben Sie immer genau eine Anweisung in genau eine Zeile. ➤ Beenden Sie jede Anweisung
+						mit einem Semikolon.</p>
+				</article>
+				<article>
+					<h2>Seien Sie strict</h2>
+					<p>Es gibt vielmehr die Möglichkeit, JS in den sogenannten strict mode zu versetzen. In diesem Modus verhält sich JS tatsächlich
+						strikter. Das bedeutet:</p>
+					<ul>
+						<li>Einige Richtlinien, die der standard mode als reine Konvention betrachtet, führen im strict mode zu einer Fehlermeldung.</li>
+						<li>Viele veraltete Sprachkonstrukte werden nicht mehr akzeptiert (z. B. die with -Anweisung)</li>
+						<li>Fehlerhafter oder problematischer Code, den JS im standard mode ohne Murren akzep- tiert, führt nun zu einer (meist)
+							aussagekräftigen Fehlermeldung. Damit bemerken Sie Pro- bleme frühzeitig und sparen sich die oft aufwendige Fehlersuche.</li>
+						<li>Einige ES6-spezifischen Sprachkonstrukte (z. B. let ) lassen sich in den meisten Umgebun- gen überhaupt nur im strict
+							mode verwenden.</li>
+					</ul>
+					<p>Um JS in den strict mode zu versetzen, müssen Sie nicht viel tun: Es genügt, wenn Sie die Anweisung
+						<strong>"use strict";</strong> an den Anfang Ihrer JS-Datei schreiben.</p>
+				</article>
+				<article>
+					<h2>Kommentare oder: Geben Sie doch ihren Senf dazu.</h2>
+					<p>Einzeilige Kommentare binden Sie mit zwei Slashes // ein.</p>
+					<p>Mehrzeilige Kommentare erlauben Ihnen, längere — eben mehrzeilige — Texte in den Code einzubetten. Ein solcher Kommentar
+						beginnt mit den Zeichen /* und endet mit */ .</p>
+				</article>
+			</section>
+		</main>
+	</div>
 </body>

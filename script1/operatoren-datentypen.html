@@ -2,91 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/master.css">
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		crossorigin="anonymous">
+
+	<link rel="stylesheet" href="../css/master.css">
 </head>
 
 <body>
-    <div id="site-wrapper">
-        <main>
-            <section>
-                <h1>3 Von Operatoren, Datentypen und anderen Prioritäten</h1>
-                <article>
-                    <h2>3.1 Rechnen mit Javascript</h2>
-                    <p>Selbst an diesem einfachen kleinen Beispiel lassen sich bereits einige interessante JS-Konzepte erkennen:
-                        <strong>3 + 4 ist ein Ausdruck</strong>. Ausdrücke gehören zu den wichtigsten Konzepten in JS. <strong>Charakteristisch für Ausdrücke ist, dass sie einen Rückgabewert besitzen</strong>                        — in diesem Fall die Zahl 7 .</p>
-                    <p>Einen Rückgabewert wiederum können Sie an den verschiedensten Stellen im Code einsetzen, z. B. als Argument
-                        bei einem Funktionsaufruf — oder anders ausgedrückt: <strong>JavaScript ersetzt
+	<div class="container">
+		<nav role="navigation" id="nav" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="scratchpad.html">scratchpad</a></li>
+					<li class="active"><a href="#">Operatoren + Datentypen</a></li>
+					<li><a href="variables.html">Variablen</a></li>
+					<li><a href="bezeichner.html">Bezeichner</a></li>
+					<li><a href="strings.html">Strings</a></li>
+					<li><a href="typenkonvertierung.html">Typenkonvertierung</a></li>
+					<li><a href="math.html">Math</a></li>
+					<li><a href="vergleichsoperatoren.html">Relationale Operatoren</a></li>
+					<li><a href="ifelse.html">If else</a></li>
+					<li><a href="LogischeOperatoren.html">Logische Operatoren</a></li>
+					<li><a href="stringMeth.html">String Meth.</a></li>
+					<li><a href="funktionen.html">Funktionen</a></li>
+					<li><a href="funcRueck.html">Funktionen return</a></li>
+					<li><a href="arrays.html">Arrays</a></li>
+					<li><a href="scopes.html">Scopes</a></li>
+					<li><a href="rekursion.html">Rekusion</a></li>
+					<li><a href="ranges.html">Ranges</a></li>
+				</ul>
+			</div>
+		</nav>
+		<main>
+			<section>
+				<h1>3 Von Operatoren, Datentypen und anderen Prioritäten</h1>
+				<article>
+					<h2>3.1 Rechnen mit Javascript</h2>
+					<p>Selbst an diesem einfachen kleinen Beispiel lassen sich bereits einige interessante JS-Konzepte erkennen:
+						<strong>3 + 4 ist ein Ausdruck</strong>. Ausdrücke gehören zu den wichtigsten Konzepten in JS. <strong>Charakteristisch für Ausdrücke ist, dass sie einen Rückgabewert besitzen</strong>						— in diesem Fall die Zahl 7 .</p>
+					<p>Einen Rückgabewert wiederum können Sie an den verschiedensten Stellen im Code einsetzen, z. B. als Argument bei einem
+						Funktionsaufruf — oder anders ausgedrückt: <strong>JavaScript ersetzt
 Ausdrücke durch ihren (Rückgabe-)Wert</strong>.</p>
-                </article>
-                <article>
-                    <h2>Zeichen? Strings!</h2>
-                    <h4>Zwei Arten von Anführungszeichen</h4>
-                    <p>Sie dürfen sowohl einfache als auch doppelte Anführungszeichen verwenden. <strong>Sie müssen allerdings am Anfang und am Ende des Strings gleich sein.</strong></p>
-                    <p>Die meisten JS-Entwickler verwenden konsistent doppelte Anführungszeichen und nur in Ausnahmefällen einfache
-                        z. B. um die doppelten innerhalb eines Strings für wörtliche Rede verwenden zu können.</p>
-                </article>
-                <article>
-                    <h2>Die Frage nach der Länge</h2>
-                    <p>An dieser Stelle wollen wir Ihnen daher die String-Eigenschaft length näherbringen. Sie können einen
-                        String nach dieser Eigenschaft fragen, indem Sie .length dahinter schreiben. <br>"length matters
-                        - sometimes".length // => 26</p>
-                </article>
-                <article>
-                    <h2>Direkt, wörtlich & wertig: Literale</h2>
-                    <p>Grundsätzlich gilt, dass jeder Wert egal ob String oder Zahl der direkt wörtlich (engl.: literally) im
-                        Code steht, als Literal bezeichnet wird. Literale haben immer einen festen Wert.</p>
-                    <p>Beispiele ➤ 42 ➤ "Haus" ➤ "grün" ➤ 5.47 ➤ 1998 ➤ "Bitte geben Sie Ihren Namen ein"</p>
-                </article>
-                <article>
-                    <h2>Die Datentypen number & string</h2>
-                    <p>Literale haben in JavaScript einen sogenannten Datentyp. Der Datentyp gibt an, welcher Art diese Daten
-                        sind, und bestimmt damit insbesondere ihren Wertebereich.</p>
-                    <p>Sie können leicht herausfinden, welchen Datentyp ein Literal hat. Zu diesem Zweck gibt es in JavaScript
-                        den Operator typeof. Der Rückgabewert von typeof ist ein String, der den Datentyp angibt.</p>
-                </article>
-                <article>
-                    <h2>Prioritäten & Klammerung</h2>
-                    <p>JavaScript berücksichtigt dabei die arithmetische Regel, dass eine Multiplikation vor einer Addition
-                        Vorrang hat. Vielleicht ist Ihnen diese Regel auch als Punkt- vor-Strich-Regel bekannt.</p>
-                    <p>Operatoren, die den gleichen Rang haben, werden meist von links nach rechts ausgewertet.</p>
-                    <table>
-                        <thead>
-                            <td>Priorität/Präzendenz</td>
-                            <td>Name</td>
-                            <td>Operator</td>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Functionsaufruf,Gruppierungsoperator</td>
-                                <td>Klammern() functions wie prompt()</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>typeof-Operator</td>
-                                <td>typeof</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Multiplikation, Division, Modulo</td>
-                                <td>*,/,%</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Addition, Subtraktion</td>
-                                <td>+,-</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Zuweisungsoperator</td>
-                                <td>= , +=, -=, *=, /= (zusammengesetzte Zuweisungsoperatoren funktionieren nur mit variablen sonst reference error)/td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </article>
-            </section>
-        </main>
-    </div>
+				</article>
+				<article>
+					<h2>Zeichen? Strings!</h2>
+					<h4>Zwei Arten von Anführungszeichen</h4>
+					<p>Sie dürfen sowohl einfache als auch doppelte Anführungszeichen verwenden. <strong>Sie müssen allerdings am Anfang und am Ende des Strings gleich sein.</strong></p>
+					<p>Die meisten JS-Entwickler verwenden konsistent doppelte Anführungszeichen und nur in Ausnahmefällen einfache z. B. um
+						die doppelten innerhalb eines Strings für wörtliche Rede verwenden zu können.</p>
+				</article>
+				<article>
+					<h2>Die Frage nach der Länge</h2>
+					<p>An dieser Stelle wollen wir Ihnen daher die String-Eigenschaft length näherbringen. Sie können einen String nach dieser
+						Eigenschaft fragen, indem Sie .length dahinter schreiben. <br>"length matters - sometimes".length // => 26</p>
+				</article>
+				<article>
+					<h2>Direkt, wörtlich & wertig: Literale</h2>
+					<p>Grundsätzlich gilt, dass jeder Wert egal ob String oder Zahl der direkt wörtlich (engl.: literally) im Code steht, als
+						Literal bezeichnet wird. Literale haben immer einen festen Wert.</p>
+					<p>Beispiele ➤ 42 ➤ "Haus" ➤ "grün" ➤ 5.47 ➤ 1998 ➤ "Bitte geben Sie Ihren Namen ein"</p>
+				</article>
+				<article>
+					<h2>Die Datentypen number & string</h2>
+					<p>Literale haben in JavaScript einen sogenannten Datentyp. Der Datentyp gibt an, welcher Art diese Daten sind, und bestimmt
+						damit insbesondere ihren Wertebereich.</p>
+					<p>Sie können leicht herausfinden, welchen Datentyp ein Literal hat. Zu diesem Zweck gibt es in JavaScript den Operator
+						typeof. Der Rückgabewert von typeof ist ein String, der den Datentyp angibt.</p>
+				</article>
+				<article>
+					<h2>Prioritäten & Klammerung</h2>
+					<p>JavaScript berücksichtigt dabei die arithmetische Regel, dass eine Multiplikation vor einer Addition Vorrang hat. Vielleicht
+						ist Ihnen diese Regel auch als Punkt- vor-Strich-Regel bekannt.</p>
+					<p>Operatoren, die den gleichen Rang haben, werden meist von links nach rechts ausgewertet.</p>
+					<table class="table table-bordered">
+						<thead>
+							<td>Priorität/Präzendenz</td>
+							<td>Name</td>
+							<td>Operator</td>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Functionsaufruf,Gruppierungsoperator</td>
+								<td>Klammern() functions wie prompt()</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>typeof-Operator</td>
+								<td>typeof</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Multiplikation, Division, Modulo</td>
+								<td>*,/,%</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>Addition, Subtraktion</td>
+								<td>+,-</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Zuweisungsoperator</td>
+								<td>= , +=, -=, *=, /= (zusammengesetzte Zuweisungsoperatoren funktionieren nur mit variablen sonst reference error)/td>
+							</tr>
+						</tbody>
+					</table>
+				</article>
+			</section>
+		</main>
+	</div>
 </body>
